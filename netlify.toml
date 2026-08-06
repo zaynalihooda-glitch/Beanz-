@@ -1,0 +1,4 @@
+# The site is pre-built and committed, so Netlify just publishes the repo root.
+[build]
+  publish = "."
+  command = ""

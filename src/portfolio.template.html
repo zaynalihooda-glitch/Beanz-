@@ -1,0 +1,195 @@
+<style>
+  @font-face{font-family:'Fraunces';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,__FR400__) format('woff2');font-display:swap}
+  @font-face{font-family:'Fraunces';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,__FR600__) format('woff2');font-display:swap}
+  @font-face{font-family:'Fraunces';font-weight:400;font-style:italic;src:url(data:font/woff2;base64,__FR400I__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,__AR400__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:500;font-style:normal;src:url(data:font/woff2;base64,__AR500__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,__AR600__) format('woff2');font-display:swap}
+  :root{
+    --paper:#F4F4F1;--paper-2:#ECEBE5;--surface:#FFFFFF;
+    --ink:#1C231F;--ink-2:#33403A;--mute:#5E6B64;--mute-2:#8A938C;
+    --pine:#2C5A48;--pine-2:#224A3A;--pine-tint:#E6EEEA;--bronze:#B07C3F;--bronze-2:#956733;
+    --line:rgba(28,35,31,.13);--line-2:rgba(28,35,31,.22);
+    --sh-sm:0 1px 2px rgba(28,35,31,.06);--sh:0 2px 6px rgba(28,35,31,.05),0 16px 36px rgba(28,35,31,.08);--sh-lg:0 30px 70px rgba(28,35,31,.16);
+    --maxw:1200px;--serif:'Fraunces',Georgia,serif;--sans:'Archivo',system-ui,-apple-system,sans-serif;
+  }
+  :root[data-theme]{color-scheme:light}
+  *{box-sizing:border-box;margin:0;padding:0}
+  #pf{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #pf ::selection{background:var(--pine);color:#fff}
+  #pf a{color:inherit;text-decoration:none}
+  #pf h1,#pf h2,#pf h3{font-family:var(--serif);font-weight:600;line-height:1.08;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
+  #pf .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  #pf .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:18px}
+  #pf .eyebrow::before{content:"";width:20px;height:2px;background:var(--bronze)}
+  #pf .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 24px;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:.2s}
+  #pf .btn-primary{background:var(--pine);color:#fff;border-color:var(--pine)}
+  #pf .btn-primary:hover{background:var(--pine-2);transform:translateY(-1px)}
+  #pf .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  #pf .btn-ghost:hover{border-color:var(--pine);color:var(--pine)}
+  #pf .btn-white{background:#fff;color:var(--pine);border-color:#fff}
+
+  /* nav */
+  #pf .nav{position:sticky;top:0;z-index:60;background:rgba(244,244,241,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  #pf .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  #pf .brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:.02em}
+  #pf .brand .mk{width:30px;height:30px}
+  #pf .brand .mk svg{width:100%;height:100%;display:block;color:var(--pine)}
+  #pf .body-f{fill:currentColor}#pf .crease-f{fill:none;stroke:var(--bronze);stroke-width:3.4;stroke-linecap:round}
+  #pf .nav-links{display:flex;align-items:center;gap:30px}
+  #pf .nav-links a{font-size:14.5px;color:var(--ink-2);font-weight:500}
+  #pf .nav-links a:hover{color:var(--pine)}
+  #pf .nav-links a.active{color:var(--pine);font-weight:600}
+
+  /* header */
+  #pf .phead{padding:76px 0 20px}
+  #pf .phead h1{font-size:clamp(38px,5vw,60px);letter-spacing:-.03em;margin-bottom:18px}
+  #pf .phead h1 em{font-style:italic;color:var(--pine)}
+  #pf .phead p{font-size:19px;color:var(--mute);max-width:56ch}
+  #pf .count{display:flex;gap:20px;flex-wrap:wrap;margin-top:32px;padding-top:22px;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+  #pf .count b{color:var(--ink);font-weight:600}
+
+  /* case study */
+  #pf .case{padding:70px 0}
+  #pf .case-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:start}
+  #pf .shot{border-radius:14px;overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--sh-lg);background:#fff}
+  #pf .shot .chrome{height:38px;display:flex;align-items:center;gap:8px;padding:0 15px;background:var(--paper-2);border-bottom:1px solid var(--line)}
+  #pf .shot .chrome .d{width:10px;height:10px;border-radius:50%;background:rgba(28,35,31,.16)}
+  #pf .shot .chrome .u{margin-left:12px;font-size:12.5px;color:var(--mute);background:#fff;border:1px solid var(--line);padding:4px 14px;border-radius:100px;font-family:var(--sans)}
+  #pf .shot img{display:block;width:100%;height:auto}
+  #pf .meta{position:sticky;top:104px}
+  #pf .meta .tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bronze-2);background:rgba(176,124,63,.12);padding:5px 12px;border-radius:100px;margin-bottom:16px}
+  #pf .meta h2{font-size:32px;margin-bottom:14px}
+  #pf .meta p{color:var(--mute);font-size:16px;margin-bottom:14px}
+  #pf .facts{list-style:none;margin:22px 0;border-top:1px solid var(--line)}
+  #pf .facts li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}
+  #pf .facts li span:first-child{color:var(--mute)}
+  #pf .facts li span:last-child{font-weight:500;text-align:right}
+  #pf .did{list-style:none;display:flex;flex-direction:column;gap:11px;margin:20px 0 26px}
+  #pf .did li{display:flex;gap:11px;font-size:15px;color:var(--ink-2)}
+  #pf .did svg{flex:0 0 auto;margin-top:3px}
+  #pf .meta .acts{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* next slot */
+  #pf .next{padding:20px 0 90px}
+  #pf .next-card{border:1.5px dashed var(--line-2);border-radius:16px;padding:52px 30px;text-align:center;background:var(--paper-2)}
+  #pf .next-card h3{font-size:26px;margin-bottom:10px}
+  #pf .next-card p{color:var(--mute);max-width:44ch;margin:0 auto 22px}
+
+  /* cta band */
+  #pf .band-wrap{padding:0 0 96px}
+  #pf .band{background:var(--pine);color:#fff;border-radius:22px;padding:60px;text-align:center;position:relative;overflow:hidden}
+  #pf .band::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:rgba(176,124,63,.22)}
+  #pf .band h2{color:#fff;font-size:clamp(28px,3.6vw,42px);position:relative}
+  #pf .band p{color:#CFE0D8;font-size:17px;margin:16px auto 28px;max-width:46ch;position:relative}
+  #pf .band .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+  #pf footer{border-top:1px solid var(--line);padding:44px 0}
+  #pf .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--mute-2)}
+  #pf .foot-in a{color:var(--mute)}
+
+  #pf .rv{opacity:0;transform:translateY(18px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  #pf .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){#pf .rv{opacity:1;transform:none;transition:none}}
+  @media(max-width:880px){
+    #pf .wrap{padding:0 22px}
+    #pf .nav-links a:not(.active):not(.home){display:none}
+    #pf .case-grid{grid-template-columns:1fr;gap:30px}
+    #pf .meta{position:static}
+    #pf .band{padding:44px 24px}
+  }
+</style>
+
+<div id="pf">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="__HOME__" class="brand"><span class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="9" width="50" height="50" rx="15" fill="#B07C3F"/><rect x="4" y="4" width="50" height="50" rx="15" fill="#2C5A48"/><g fill="#F4F4F1"><path d="M30 22 C 30 12 40 10 41 13 C 41 20 34 24 30 22 Z"/><ellipse cx="27.5" cy="34.5" rx="10.5" ry="14" transform="rotate(-16 27.5 34.5)"/></g><path d="M30 22 C 29 27 28.5 29 28.5 31.5" stroke="#F4F4F1" stroke-width="2.2" fill="none" stroke-linecap="round"/></svg></span>BEANZ</a>
+    <nav class="nav-links">
+      <a href="__HOME__" class="home">Home</a>
+      <a href="#work" class="active">Portfolio</a>
+      <a href="__HOME__#pricing">Pricing</a>
+      <a href="__HOME__#contact" class="btn btn-primary" style="padding:10px 18px;color:#fff">I'm interested</a>
+    </nav>
+  </div>
+</header>
+
+<section class="phead" id="work">
+  <div class="wrap">
+    <div class="eyebrow">Portfolio</div>
+    <h1>Websites we've <em>crafted.</em></h1>
+    <p>Real sites, built to look the part and bring their owners more business. Here's a recent one — with more on the way.</p>
+    <div class="count">
+      <span><b>1</b> project live</span>
+      <span><b>Web design</b> &amp; build</span>
+      <span><b>UK</b> based</span>
+    </div>
+  </div>
+</section>
+
+<section class="case">
+  <div class="wrap case-grid">
+    <div class="shot rv">
+      <div class="chrome"><span class="d"></span><span class="d"></span><span class="d"></span><span class="u">fwhfitness.com</span></div>
+      <img src="data:image/jpeg;base64,__FWH_JPG__" alt="FWH Fitness homepage — Helping women achieve lasting results to their body, health and mind">
+    </div>
+    <div class="meta rv">
+      <span class="tag">Health &amp; Wellbeing</span>
+      <h2>FWH Fitness</h2>
+      <p>A calm, premium website for a women's health &amp; wellbeing coach — designed to build instant trust and turn visitors into coaching enquiries.</p>
+      <p>Elegant, editorial and warm, with clear paths to every part of the offer: coaching, success stories, recipes and resources.</p>
+      <ul class="facts">
+        <li><span>Client</span><span>FWH Fitness</span></li>
+        <li><span>Type</span><span>Coaching website</span></li>
+        <li><span>Scope</span><span>Design &amp; build</span></li>
+        <li><span>Year</span><span>2026</span></li>
+      </ul>
+      <ul class="did">
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Brand-aligned design in a soft, premium palette</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Clear structure across services, stories &amp; resources</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Conversion-focused calls to action</li>
+        <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Fully responsive across mobile &amp; desktop</li>
+      </ul>
+      <div class="acts">
+        <a href="https://fwhfitness.com" target="_blank" rel="noopener" class="btn btn-primary">Visit the site &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+    <div class="next-card rv">
+      <h3>Your project could be next.</h3>
+      <p>We're taking on a small number of new small-business websites. Yours could be the next one in this gallery.</p>
+      <a href="__HOME__#contact" class="btn btn-primary">I'm interested &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="band-wrap">
+  <div class="wrap">
+    <div class="band rv">
+      <h2>Want a website like this?</h2>
+      <p>Book a free call and we'll show you exactly how a new site could bring your business more work.</p>
+      <div class="btns">
+        <a href="__HOME__#contact" class="btn btn-white">I'm interested &rarr;</a>
+        <a href="__HOME__" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">Back to home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 BEANZ</span>
+    <span><a href="__HOME__">Home</a> &nbsp;·&nbsp; <a href="__HOME__#pricing">Pricing</a> &nbsp;·&nbsp; <a href="__HOME__#contact">Contact</a></span>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+  document.querySelectorAll('#pf .rv').forEach(function(el){io.observe(el);});
+})();
+</script>
