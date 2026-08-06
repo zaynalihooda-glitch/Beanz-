@@ -523,7 +523,9 @@
         <a href="#top"><span>Hours</span><span>Mon&ndash;Fri, 9&ndash;6</span></a>
       </div>
     </div>
-    <form id="leadForm" class="rv">
+    <form id="leadForm" class="rv" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p hidden><label>Leave this empty: <input name="bot-field"></label></p>
       <div class="two">
         <div class="fld"><label for="name">Your name</label><input id="name" name="name" required placeholder="Jane Smith"></div>
         <div class="fld"><label for="business">Business</label><input id="business" name="business" placeholder="Smith &amp; Co."></div>
@@ -542,7 +544,7 @@
       </div>
       <div class="fld"><label for="message">About your business</label><textarea id="message" name="message" placeholder="What you do, and what you'd like your website to achieve."></textarea></div>
       <button type="submit" class="btn btn-primary">I'm interested &rarr;</button>
-      <p class="fnote">We'll never share your details. Ready to connect to your email or CRM.</p>
+      <p class="fnote">We'll never share your details. We'll reply within one working day.</p>
     </form>
   </div>
 </section>
@@ -580,9 +582,11 @@
   lc.querySelectorAll('.rv').forEach(function(el){io.observe(el);});
   document.getElementById('leadForm').addEventListener('submit',function(e){
     e.preventDefault();
-    var b=this.querySelector('button[type=submit]');
-    b.textContent='Thank you. We will be in touch shortly.';
-    b.style.pointerEvents='none';
+    var form=this, b=form.querySelector('button[type=submit]');
+    b.textContent='Sending...'; b.style.pointerEvents='none';
+    fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+      .then(function(){b.textContent='Thank you. We will be in touch shortly.';})
+      .catch(function(){b.textContent='Please email hello@beanzdesigns.com';b.style.pointerEvents='auto';});
   });
 })();
 </script>
