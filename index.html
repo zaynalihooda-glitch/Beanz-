@@ -125,12 +125,12 @@
   #lc .guide h2{color:#fff;font-size:clamp(28px,3.5vw,42px)}
   #lc .guide h2 em{font-style:italic;color:#E9C79A}
   #lc .guide p{color:#D3E0DA;font-size:17px;margin-top:20px;max-width:52ch}
-  #lc .guide .authority{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:8px;border:1px solid rgba(255,255,255,.18);border-radius:16px;overflow:hidden}
-  #lc .guide .au{padding:26px 22px;border-right:1px solid rgba(255,255,255,.18)}
-  #lc .guide .au:last-child{border-right:none}
-  #lc .guide .au .num{font-family:var(--serif);font-size:38px;color:#fff;line-height:1}
-  #lc .guide .au .lbl{font-size:13px;color:#B9CCC4;margin-top:8px}
-  #lc .guide .ph{color:#8FB0A5;font-size:11px}
+  #lc .guide .authority{display:flex;flex-direction:column;margin-top:8px;border:1px solid rgba(255,255,255,.18);border-radius:16px;overflow:hidden}
+  #lc .guide .au{display:flex;gap:16px;align-items:flex-start;padding:20px 22px;border-bottom:1px solid rgba(255,255,255,.18)}
+  #lc .guide .au:last-child{border-bottom:none}
+  #lc .guide .au .sn{flex:0 0 auto;width:34px;height:34px;border-radius:50%;background:var(--bronze);color:#20180a;font-family:var(--serif);font-weight:600;font-size:17px;display:grid;place-items:center;line-height:1}
+  #lc .guide .au .st{font-size:17px;font-weight:600;color:#fff}
+  #lc .guide .au .lbl{font-size:13.5px;color:#B9CCC4;margin-top:4px;line-height:1.45}
 
   /* plan */
   #lc .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;counter-reset:s}
@@ -356,9 +356,9 @@
       <p>We know a small business runs on its reputation and its next enquiry. So we don't build pretty brochures that sit there &#8212; we build websites that earn their keep, and we handle every technical part for you.</p>
     </div>
     <div class="authority rv">
-      <div class="au"><div class="num">50+ <span class="ph">*</span></div><div class="lbl">Websites launched</div></div>
-      <div class="au"><div class="num">40% <span class="ph">*</span></div><div class="lbl">Average more enquiries</div></div>
-      <div class="au"><div class="num">7 days</div><div class="lbl">Typical turnaround</div></div>
+      <div class="au"><span class="sn">1</span><div><div class="st">You're interested</div><div class="lbl">You reach out and book a free, no-pressure call.</div></div></div>
+      <div class="au"><span class="sn">2</span><div><div class="st">You're set up</div><div class="lbl">You share your details and payment, and we get started.</div></div></div>
+      <div class="au"><span class="sn">3</span><div><div class="st">You're live</div><div class="lbl">Your finished website goes live within 7 days of the agreed start date.</div></div></div>
     </div>
   </div>
 </section>
