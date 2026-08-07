@@ -72,7 +72,14 @@ def build():
         "Monthly care plans for your BEANZ website — hosting, security, updates, content and support. No lock-in.",
         care)))
 
-    for f in ("index.html", "portfolio.html", "care.html"):
+    # FAQ -> faq.html
+    faq = inject_fonts((HERE / "faq.template.html").read_text())
+    (ROOT / "faq.html").write_text(encode_entities(document(
+        "BEANZ — Frequently asked questions",
+        "Common questions about working with BEANZ: our packages, done-for-you StoryBrand copy, timelines, ownership, care plans and more.",
+        faq)))
+
+    for f in ("index.html", "portfolio.html", "care.html", "faq.html"):
         kb = round((ROOT / f).stat().st_size / 1024)
         print(f"built {f}  ({kb} KB)")
 

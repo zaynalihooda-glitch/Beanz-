@@ -1,0 +1,177 @@
+<style>
+  @font-face{font-family:'Fraunces';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,__FR400__) format('woff2');font-display:swap}
+  @font-face{font-family:'Fraunces';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,__FR600__) format('woff2');font-display:swap}
+  @font-face{font-family:'Fraunces';font-weight:400;font-style:italic;src:url(data:font/woff2;base64,__FR400I__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:400;font-style:normal;src:url(data:font/woff2;base64,__AR400__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:500;font-style:normal;src:url(data:font/woff2;base64,__AR500__) format('woff2');font-display:swap}
+  @font-face{font-family:'Archivo';font-weight:600;font-style:normal;src:url(data:font/woff2;base64,__AR600__) format('woff2');font-display:swap}
+  :root{
+    --paper:#F4F4F1;--paper-2:#ECEBE5;--surface:#FFFFFF;
+    --ink:#1C231F;--ink-2:#33403A;--mute:#5E6B64;--mute-2:#8A938C;
+    --pine:#2C5A48;--pine-2:#224A3A;--pine-tint:#E6EEEA;--bronze:#B07C3F;--bronze-2:#956733;
+    --line:rgba(28,35,31,.13);--line-2:rgba(28,35,31,.22);
+    --sh-sm:0 1px 2px rgba(28,35,31,.06);--sh-lg:0 26px 60px rgba(28,35,31,.13);
+    --maxw:1200px;--serif:'Fraunces',Georgia,serif;--sans:'Archivo',system-ui,-apple-system,sans-serif;
+  }
+  :root[data-theme]{color-scheme:light}
+  *{box-sizing:border-box;margin:0;padding:0}
+  #fq{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #fq ::selection{background:var(--pine);color:#fff}
+  #fq a{color:inherit;text-decoration:none}
+  #fq h1,#fq h2,#fq h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.02em;text-wrap:balance;color:var(--ink)}
+  #fq .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+  #fq .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:18px}
+  #fq .eyebrow::before{content:"";width:20px;height:2px;background:var(--bronze)}
+  #fq .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:600;font-size:15px;padding:14px 24px;border-radius:9px;border:1px solid transparent;cursor:pointer;transition:.2s}
+  #fq .btn-primary{background:var(--pine);color:#fff;border-color:var(--pine)}
+  #fq .btn-primary:hover{background:var(--pine-2);transform:translateY(-1px)}
+  #fq .btn-white{background:#fff;color:var(--pine);border-color:#fff}
+  #fq .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  #fq .btn-ghost:hover{border-color:var(--pine);color:var(--pine)}
+
+  #fq .nav{position:sticky;top:0;z-index:60;background:rgba(244,244,241,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  #fq .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  #fq .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:600;font-size:23px;letter-spacing:.02em}
+  #fq .brand .mk{width:30px;height:30px}
+  #fq .brand .mk svg{width:100%;height:100%;display:block}
+  #fq .nav-links{display:flex;align-items:center;gap:30px}
+  #fq .nav-links a{font-size:14.5px;color:var(--ink-2);font-weight:500}
+  #fq .nav-links a:hover{color:var(--pine)}
+  #fq .nav-links a.active{color:var(--pine);font-weight:600}
+
+  #fq .phead{padding:70px 0 44px;text-align:center;max-width:720px;margin:0 auto}
+  #fq .phead h1{font-size:clamp(36px,4.8vw,56px);letter-spacing:-.03em;margin-bottom:18px}
+  #fq .phead h1 em{font-style:italic;color:var(--pine)}
+  #fq .phead p{font-size:18px;color:var(--mute)}
+
+  #fq .faqs{padding:8px 0 70px}
+  #fq .grp{max-width:820px;margin:0 auto 46px}
+  #fq .grp > h2{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze-2);font-family:var(--sans);font-weight:700;margin-bottom:10px;padding-left:2px}
+  #fq .qlist{border-top:1px solid var(--line-2)}
+  #fq details.q{border-bottom:1px solid var(--line)}
+  #fq details.q summary{list-style:none;cursor:pointer;padding:22px 4px;display:flex;justify-content:space-between;gap:20px;align-items:baseline}
+  #fq details.q summary::-webkit-details-marker{display:none}
+  #fq details.q summary h3{font-family:var(--serif);font-size:clamp(18px,2vw,21px);font-weight:600}
+  #fq details.q summary .pm{color:var(--bronze);font-size:22px;line-height:1;transition:transform .25s;flex:0 0 auto}
+  #fq details.q[open] summary .pm{transform:rotate(45deg)}
+  #fq details.q .a{padding:0 4px 24px;color:var(--mute);max-width:68ch;font-size:16px}
+  #fq details.q .a strong{color:var(--ink);font-weight:600}
+  #fq details.q .a a{color:var(--pine);font-weight:600;border-bottom:1px solid rgba(44,90,72,.4)}
+
+  #fq .band-wrap{padding:0 0 90px}
+  #fq .band{background:var(--pine);color:#fff;border-radius:22px;padding:56px;text-align:center;position:relative;overflow:hidden}
+  #fq .band::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:rgba(176,124,63,.22)}
+  #fq .band h2{color:#fff;font-size:clamp(26px,3.4vw,38px);position:relative}
+  #fq .band p{color:#CFE0D8;font-size:16px;margin:14px auto 26px;max-width:46ch;position:relative}
+  #fq .band .btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative}
+
+  #fq footer{border-top:1px solid var(--line);padding:44px 0}
+  #fq .foot-in{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:13.5px;color:var(--mute-2)}
+  #fq .foot-in a{color:var(--mute)}
+
+  #fq .rv{opacity:0;transform:translateY(16px);transition:.7s cubic-bezier(.2,.7,.2,1)}
+  #fq .rv.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){#fq .rv{opacity:1;transform:none;transition:none}}
+  @media(max-width:880px){
+    #fq .wrap{padding:0 22px}
+    #fq .nav-links a:not(.active):not(.home){display:none}
+    #fq .band{padding:40px 24px}
+  }
+</style>
+
+<div id="fq">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand"><span class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="9" width="50" height="50" rx="15" fill="#B07C3F"/><rect x="4" y="4" width="50" height="50" rx="15" fill="#2C5A48"/><g fill="#F4F4F1"><path d="M30 22 C 30 12 40 10 41 13 C 41 20 34 24 30 22 Z"/><ellipse cx="27.5" cy="34.5" rx="10.5" ry="14" transform="rotate(-16 27.5 34.5)"/></g></svg></span>BEANZ</a>
+    <nav class="nav-links">
+      <a href="index.html" class="home">Home</a>
+      <a href="index.html#pricing">Packages</a>
+      <a href="care.html">Care plans</a>
+      <a href="#faq" class="active">FAQ</a>
+      <a href="index.html#contact" class="btn btn-primary" style="padding:10px 18px;color:#fff">I'm interested</a>
+    </nav>
+  </div>
+</header>
+
+<section class="phead" id="faq">
+  <div class="wrap">
+    <div class="eyebrow" style="justify-content:center">FAQ</div>
+    <h1>Questions? <em>Answered.</em></h1>
+    <p>Everything you might want to know about working with BEANZ. Can't find your answer? Just book a free call &mdash; we're happy to help.</p>
+  </div>
+</section>
+
+<section class="faqs">
+  <div class="wrap">
+
+    <div class="grp rv">
+      <h2>Getting started</h2>
+      <div class="qlist">
+        <details class="q"><summary><h3>How does it all work?</h3><span class="pm">+</span></summary><div class="a">It starts with a free, no-pressure call so we understand your business, your customers and your goals. Then we design, build <strong>and write</strong> the whole site for you, share it for feedback, refine it, and launch. You're kept in the loop the whole way &mdash; and we handle every technical part.</div></details>
+        <details class="q"><summary><h3>How long does it take?</h3><span class="pm">+</span></summary><div class="a">It depends on the package: a one-page <strong>Launch</strong> site is delivered in around 14 days, with first drafts from 5&ndash;14 days on Grow and Signature. The biggest factor is how quickly we get your content and feedback &mdash; we'll agree a clear timeline on day one.</div></details>
+        <details class="q"><summary><h3>What do I need to prepare?</h3><span class="pm">+</span></summary><div class="a">Very little. We write the words and handle the design. If you have a logo and photos, great &mdash; send them over. If not, we'll guide you, source suitable imagery, and (on Signature) even revamp your logo.</div></details>
+        <details class="q"><summary><h3>Who do you work with?</h3><span class="pm">+</span></summary><div class="a">Small businesses across the UK &mdash; trades, clinics, caf&eacute;s, salons, coaches and local firms. If you rely on your reputation and your next enquiry, we're built for you.</div></details>
+      </div>
+    </div>
+
+    <div class="grp rv">
+      <h2>Copy &amp; content</h2>
+      <div class="qlist">
+        <details class="q"><summary><h3>Do I have to write the words myself?</h3><span class="pm">+</span></summary><div class="a"><strong>No &mdash; and that's our biggest difference.</strong> Most designers hand you an empty site and expect you to fill it. We don't. We learn your business and write your copy for you, using the StoryBrand framework. It's included in <strong>every</strong> package.</div></details>
+        <details class="q"><summary><h3>What is StoryBrand?</h3><span class="pm">+</span></summary><div class="a">A proven messaging framework (created by Donald Miller) that makes your <strong>customer</strong> the hero of the story and your business the guide who helps them win. It cuts the waffle and makes your site clear and persuasive &mdash; which is what actually turns visitors into enquiries. We build every BEANZ site on it.</div></details>
+        <details class="q"><summary><h3>Do you write blog posts too?</h3><span class="pm">+</span></summary><div class="a">Yes. <strong>Grow</strong> includes up to 5 blog &amp; pillar pages and <strong>Signature</strong> up to 12, all written for you. Our <a href="care.html">Grow Care and Partner plans</a> also include monthly blog posts to keep your site fresh and improving.</div></details>
+        <details class="q"><summary><h3>I don't have a logo or photos.</h3><span class="pm">+</span></summary><div class="a">That's completely fine. We can work with what you have, source professional stock imagery where needed, and the <strong>Signature</strong> package includes a full logo revamp. A polished brand is part of the job.</div></details>
+      </div>
+    </div>
+
+    <div class="grp rv">
+      <h2>Packages &amp; pricing</h2>
+      <div class="qlist">
+        <details class="q"><summary><h3>Which package is right for me?</h3><span class="pm">+</span></summary><div class="a"><strong>Launch (&pound;495)</strong> &mdash; a sharp one-page site to get online fast. <strong>Grow (&pound;795)</strong> &mdash; a multi-page site with content, email and analytics. <strong>Signature (&pound;1,995)</strong> &mdash; the full done-for-you package, including a logo revamp and 12 months of care. Not sure? Book a call and we'll recommend honestly.</div></details>
+        <details class="q"><summary><h3>Are the prices really one-off?</h3><span class="pm">+</span></summary><div class="a">Yes. Each package is a one-off project price &mdash; no compulsory monthly fee. Ongoing <a href="care.html">care plans</a> are completely optional (and Signature includes 12 months free).</div></details>
+        <details class="q"><summary><h3>Do I have to take a monthly plan?</h3><span class="pm">+</span></summary><div class="a">Not at all. You can take your finished website and run it yourself. Care plans are there if you'd rather we keep it hosted, secure, updated and improving &mdash; but they're your choice, with no lock-in.</div></details>
+        <details class="q"><summary><h3>How do payments work?</h3><span class="pm">+</span></summary><div class="a">Simple and clear: typically a deposit to get started and the balance on launch. We'll agree the exact terms with you on your call before anything begins &mdash; no surprises.</div></details>
+        <details class="q"><summary><h3>Can I add things or upgrade later?</h3><span class="pm">+</span></summary><div class="a">Yes. You can add extra pages, blog posts, a logo revamp and more at any time &mdash; see the one-off <a href="care.html">extras</a> &mdash; or step up to a bigger package as your business grows.</div></details>
+      </div>
+    </div>
+
+    <div class="grp rv">
+      <h2>After launch</h2>
+      <div class="qlist">
+        <details class="q"><summary><h3>Do I own my website?</h3><span class="pm">+</span></summary><div class="a">Yes &mdash; on every package the website is yours. On a care plan we host and look after it for you, but you're never locked in.</div></details>
+        <details class="q"><summary><h3>Will I be found on Google?</h3><span class="pm">+</span></summary><div class="a">We build fast, clean, search-ready sites, and Grow, Signature and our care plans add deeper SEO and Google Business Profile work. Honest note: SEO is a long game &mdash; it builds over weeks and months, so we focus first on a site that converts the visitors you already get.</div></details>
+        <details class="q"><summary><h3>What if I need changes after launch?</h3><span class="pm">+</span></summary><div class="a">Small tweaks and ongoing changes are covered by our <a href="care.html">care plans</a>. Prefer to handle it yourself? No problem &mdash; or just get in touch for one-off updates.</div></details>
+        <details class="q"><summary><h3>Is my site hosted and secure?</h3><span class="pm">+</span></summary><div class="a">On a care plan, yes &mdash; managed hosting, an SSL padlock, daily backups and security monitoring are all handled for you, so your site stays fast and safe.</div></details>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="band-wrap">
+  <div class="wrap">
+    <div class="band rv">
+      <h2>Still have a question?</h2>
+      <p>Book a free, no-pressure call and we'll answer everything &mdash; and show you how a new website could bring you more work.</p>
+      <div class="btns">
+        <a href="index.html#contact" class="btn btn-white">I'm interested &rarr;</a>
+        <a href="index.html" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">Back to home</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 BEANZ</span>
+    <span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#pricing">Packages</a> &nbsp;&middot;&nbsp; <a href="care.html">Care plans</a> &nbsp;&middot;&nbsp; <a href="index.html#contact">Contact</a></span>
+  </div>
+</footer>
+</div>
+
+<script>
+(function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+  document.querySelectorAll('#fq .rv').forEach(function(el){io.observe(el);});
+})();
+</script>
