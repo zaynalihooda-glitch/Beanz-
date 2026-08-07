@@ -153,10 +153,16 @@
   #lc .tier .mo{font-size:14.5px;color:var(--pine);font-weight:600;margin-top:8px;min-height:20px}
   #lc .tier .mo.free{color:var(--mute);font-weight:400}
   #lc .tier ul{list-style:none;margin:24px 0 28px;display:flex;flex-direction:column;gap:12px;flex:1}
-  #lc .tier li{display:flex;gap:11px;font-size:14.5px;color:var(--ink-2)}
-  #lc .tier li svg{flex:0 0 auto;margin-top:3px}
+  #lc .tier li{position:relative;padding-left:24px;font-size:14.5px;color:var(--ink-2);line-height:1.5}
+  #lc .tier li::before{content:"";position:absolute;left:2px;top:6px;width:11px;height:6px;border-left:2px solid var(--pine);border-bottom:2px solid var(--pine);transform:rotate(-45deg)}
+  #lc .tier li strong{color:var(--ink);font-weight:600}
+  #lc .tier .one{font-size:13px;color:var(--mute);margin-top:3px;margin-bottom:2px}
+  #lc .tier .worth{color:var(--bronze-2);font-weight:600}
+  #lc .tier .rib.alt{background:var(--pine)}
   #lc .tier .btn{width:100%;justify-content:center}
-  #lc .price-note{text-align:center;margin-top:30px;color:var(--mute);font-size:14px}
+  #lc .price-note{text-align:center;margin-top:30px;color:var(--mute);font-size:14px;line-height:1.8}
+  #lc .price-note a{color:var(--pine);font-weight:600;border-bottom:1px solid rgba(44,90,72,.4)}
+  #lc .price-note a:hover{border-color:var(--pine)}
 
   /* compare (success vs failure) */
   #lc .compare{display:grid;grid-template-columns:1fr 1fr;gap:22px}
@@ -259,6 +265,7 @@
       <a href="#problem">Why it matters</a>
       <a href="#plan">How it works</a>
       <a href="#pricing">Pricing</a>
+      <a href="care.html">Care plans</a>
       <a href="portfolio.html">Portfolio</a>
     </nav>
     <div class="nav-right">
@@ -340,7 +347,7 @@
     </div>
     <div class="val-grid">
       <div class="val rv"><span class="vn">01</span><div><h3>More enquiries</h3><p>Every page is designed to turn visitors into calls, forms and bookings &#8212; not just look pretty.</p></div></div>
-      <div class="val rv"><span class="vn">02</span><div><h3>Found on Google</h3><p>Fast, SEO-ready pages so the right local customers actually find you when they're ready to buy.</p></div></div>
+      <div class="val rv"><span class="vn">02</span><div><h3>We write the words</h3><p>Most designers make you write the copy. We don't &#8212; we learn your business and write it for you, using the StoryBrand framework that's proven to sell.</p></div></div>
       <div class="val rv"><span class="vn">03</span><div><h3>Instantly trustworthy</h3><p>A clean, professional look that makes people feel confident choosing you over the competition.</p></div></div>
       <div class="val rv"><span class="vn">04</span><div><h3>Handled for you</h3><p>Copy, design, build and upkeep &#8212; all done for you. You run your business; we run the website.</p></div></div>
     </div>
@@ -384,52 +391,70 @@
   <div class="wrap">
     <div class="shead center rv">
       <div class="eyebrow" style="justify-content:center">Packages</div>
-      <h2>Simple pricing. Serious results.</h2>
-      <p>One low &#163;499 start. Choose how much ongoing support you want.</p>
+      <h2>One-off projects. No forced monthly.</h2>
+      <p>Every package includes your website <strong>copy written for you</strong>, using the StoryBrand framework. Choose the level of website you need &mdash; ongoing care is a separate choice.</p>
     </div>
     <div class="price-grid">
-      <div class="tier rv">
-        <h3>Starter</h3>
-        <div class="tsub">A professional website, built and handed to you.</div>
-        <div class="amt">&pound;499<small> one-off</small></div>
-        <div class="mo free">No monthly fee</div>
-        <ul>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Up to 5 custom pages</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Conversion-focused design &amp; copy</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Mobile &amp; SEO optimised</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Enquiry form &amp; lead capture</li>
-        </ul>
-        <a href="#contact" class="btn btn-ghost">Get started</a>
-      </div>
+
       <div class="tier feat rv">
-        <span class="rib">Most popular</span>
-        <h3>Growth</h3>
-        <div class="tsub">Everything handled and kept current, month to month.</div>
-        <div class="amt">&pound;499<small> upfront</small></div>
-        <div class="mo">+ &pound;129 / month</div>
+        <span class="rib">Everything, done for you</span>
+        <h3>Signature</h3>
+        <div class="tsub">The complete package &mdash; website, words, brand, and a full year of care.</div>
+        <div class="amt">&pound;1,995</div>
+        <div class="one">one-off project</div>
         <ul>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Everything in Starter</strong></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Hosting, security &amp; monitoring</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ongoing changes &amp; updates</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Priority support</li>
+          <li><strong>Everything in Grow</strong></li>
+          <li><strong>Unlimited</strong> design iterations</li>
+          <li>Up to <strong>12</strong> SEO-optimised blog &amp; pillar pages, written for you</li>
+          <li><strong>5-day</strong> first draft</li>
+          <li>Brand <strong>logo revamp</strong></li>
+          <li><strong>12 months of care included</strong> &mdash; hosting, updates &amp; support <span class="worth">(worth &pound;1,188)</span></li>
+          <li>Google Business Profile set-up</li>
+          <li>Priority everything</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">Choose Growth</a>
+        <a href="#contact" class="btn btn-primary">I'm interested</a>
       </div>
+
       <div class="tier rv">
-        <h3>Accelerator</h3>
-        <div class="tsub">A website that actively brings in and works your leads.</div>
-        <div class="amt">&pound;499<small> upfront</small></div>
-        <div class="mo">+ &pound;299 / month</div>
+        <span class="rib alt">Most popular</span>
+        <h3>Grow</h3>
+        <div class="tsub">A multi-page site built to get you found and booked.</div>
+        <div class="amt">&pound;795</div>
+        <div class="one">one-off project</div>
         <ul>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><strong>Everything in Growth</strong></li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>CRM setup &amp; management</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Automated email &amp; SMS follow-ups</li>
-          <li><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17l-5-5" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Reporting &amp; monthly review call</li>
+          <li><strong>Everything in Launch</strong></li>
+          <li>Multi-page website</li>
+          <li>Up to <strong>5</strong> blog &amp; pillar pages, written for you</li>
+          <li>Email system wired in</li>
+          <li>Basic SEO set-up</li>
+          <li>Google Analytics set-up</li>
+          <li>&ldquo;Book a call&rdquo; calendar built in</li>
+          <li><strong>3</strong> design iterations</li>
+          <li><strong>10-day</strong> first draft</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">Get started</a>
+        <a href="#contact" class="btn btn-ghost">I'm interested</a>
       </div>
+
+      <div class="tier rv">
+        <h3>Launch</h3>
+        <div class="tsub">A sharp one-page website to get you online, fast.</div>
+        <div class="amt">&pound;495</div>
+        <div class="one">one-off project</div>
+        <ul>
+          <li><strong>One-page website</strong></li>
+          <li>Copy written for you (StoryBrand)</li>
+          <li><strong>2</strong> design iterations</li>
+          <li>Delivered in <strong>14 days</strong></li>
+          <li>Contact form, click-to-call &amp; WhatsApp</li>
+          <li>Google Reviews widget</li>
+          <li>Google Maps &amp; social links</li>
+          <li>Initial onboarding call</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">I'm interested</a>
+      </div>
+
     </div>
-    <p class="price-note">Not sure which fits? Book a free call and we'll point you to the right one &#8212; no pressure.</p>
+    <p class="price-note">Every package includes done-for-you copywriting. &nbsp; Want us to keep it running after launch? <a href="care.html">See our monthly care plans &rarr;</a></p>
   </div>
 </section>
 
@@ -557,7 +582,7 @@
         <p>Websites that turn quiet small businesses into busy ones.</p>
       </div>
       <div class="foot-cols">
-        <div class="fcol"><span class="h">Explore</span><a href="#problem">Why it matters</a><a href="#plan">How it works</a><a href="#pricing">Pricing</a><a href="portfolio.html">Portfolio</a></div>
+        <div class="fcol"><span class="h">Explore</span><a href="#problem">Why it matters</a><a href="#plan">How it works</a><a href="#pricing">Pricing</a><a href="care.html">Care plans</a><a href="portfolio.html">Portfolio</a></div>
         <div class="fcol"><span class="h">Get in touch</span><a href="#contact">Book a call</a><a href="mailto:hello@beanzdesigns.com">Email</a><a href="tel:+447415325212">Phone</a></div>
       </div>
     </div>
