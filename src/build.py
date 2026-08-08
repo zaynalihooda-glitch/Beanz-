@@ -13,8 +13,9 @@ IMG   = HERE / "assets" / "img"
 PORT_LINK_PLACEHOLDER = "https://claude.ai/code/artifact/319a5937-4cd7-49c8-908d-a7a24274bb3d"
 
 FONT_TOKENS = {
-    "__FR400__": "fr400.woff2", "__FR600__": "fr600.woff2", "__FR400I__": "fr400i.woff2",
-    "__AR400__": "ar400.woff2", "__AR500__": "ar500.woff2", "__AR600__": "ar600.woff2",
+    "__INTER400__": "inter-400.woff2", "__INTER500__": "inter-500.woff2",
+    "__NEWS400__": "news-400.woff2", "__NEWS500__": "news-500.woff2",
+    "__NEWS400I__": "news-400i.woff2", "__NEWS500I__": "news-500i.woff2",
 }
 
 def b64(path):
