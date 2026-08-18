@@ -44,14 +44,7 @@ def document(title, description, fragment):
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
         f'<title>{title}</title><meta name="description" content="{description}">'
-        f'<link rel="icon" href="{FAVICON_URI}">'
-        '<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">'
-        '<script src="https://assets.calendly.com/assets/external/widget.js" async></script>'
-        '<script>(function(){var U="https://calendly.com/beanzdesigns/30min";'
-        'function o(){if(window.Calendly&&Calendly.initPopupWidget){Calendly.initPopupWidget({url:U});return 1}}'
-        'document.addEventListener("click",function(e){var t=e.target.closest("[data-book]");if(!t)return;e.preventDefault();'
-        'if(o())return;var n=0,iv=setInterval(function(){if(o()||++n>60){clearInterval(iv);if(n>60)window.open(U,"_blank")}},80)});})();</script>'
-        '</head><body>'
+        f'<link rel="icon" href="{FAVICON_URI}"></head><body>'
     )
     return head + "\n" + fragment + "\n</body></html>"
 
