@@ -44,6 +44,16 @@ FAVICON = (
 )
 FAVICON_URI = "data:image/svg+xml," + urllib.parse.quote(FAVICON, safe="")
 
+# Real, crawlable favicon files (Google Search ignores data-URI favicons, so
+# these must be actual files at real URLs for the bean mark to show in results).
+FAVICON_SVG_FILE = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">' + FAVICON.split('viewBox="0 0 64 64">',1)[1]
+FAVICON_LINKS = (
+    '<link rel="icon" type="image/svg+xml" href="/favicon.svg">'
+    '<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96.png">'
+    '<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">'
+    '<link rel="apple-touch-icon" href="/apple-touch-icon.png">'
+)
+
 OG_IMG = f"{BASE_URL}/og.jpg"
 
 def document(title, description, fragment, slug="", extra_head=""):
@@ -72,7 +82,7 @@ def document(title, description, fragment, slug="", extra_head=""):
         f'<meta name="twitter:description" content="{description}">'
         f'<meta name="twitter:image" content="{OG_IMG}">'
         '<meta name="theme-color" content="#2C5A48">'
-        f'<link rel="icon" href="{FAVICON_URI}">'
+        f'{FAVICON_LINKS}'
         f'{extra_head}'
         '</head><body>'
     )
@@ -185,6 +195,11 @@ def build():
 
     # Social share image (copied to root so /og.jpg resolves)
     (ROOT / "og.jpg").write_bytes((IMG / "og.jpg").read_bytes())
+
+    # Favicons — real files at root (Google Search needs crawlable, non-data URLs)
+    (ROOT / "favicon.svg").write_text(FAVICON_SVG_FILE)
+    for f in ("favicon-96.png", "favicon-32.png", "apple-touch-icon.png"):
+        (ROOT / f).write_bytes((IMG / f).read_bytes())
 
     # 404 page (Netlify serves /404.html automatically)
     (ROOT / "404.html").write_text(
