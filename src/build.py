@@ -85,9 +85,8 @@ JSONLD_HOME = (
     '"name":"BEANZ Designs",'
     '"description":"Conversion-led websites for small businesses, with done-for-you StoryBrand copywriting, design and build.",'
     f'"url":"{BASE_URL}","image":"{OG_IMG}","email":"hello@beanzdesigns.com",'
-    '"telephone":"+44 7415 325212","priceRange":"££",'
+    '"telephone":"+44 7415 325212",'
     '"areaServed":{"@type":"Country","name":"United Kingdom"},'
-    '"address":{"@type":"PostalAddress","addressLocality":"Fareham","addressRegion":"Hampshire","addressCountry":"GB"},'
     '"knowsAbout":["Web design","Website copywriting","StoryBrand","Small business marketing","SEO"]}'
     '</script>'
 )
