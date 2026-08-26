@@ -1,0 +1,140 @@
+<style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__INTER400__) format('woff2');font-display:block}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__INTER500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__NEWS400__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__NEWS500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:italic;font-weight:400;src:url(data:font/woff2;base64,__NEWS400I__) format('woff2');font-display:block}
+
+  :root{
+    --paper:#F4F4F1;--paper-2:#ECEBE5;--surface:#FFFFFF;
+    --ink:#1C231F;--ink-2:#33403A;--mute:#5E6B64;--mute-2:#8A938C;
+    --pine:#2C5A48;--pine-2:#224A3A;--pine-tint:#E6EEEA;--bronze:#B07C3F;--bronze-2:#956733;
+    --line:rgba(28,35,31,.13);--line-2:rgba(28,35,31,.22);
+    --sh-sm:0 1px 2px rgba(28,35,31,.06);
+    --maxw:1200px;--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  :root[data-theme]{color-scheme:light}
+  *{box-sizing:border-box;margin:0;padding:0}
+  strong,b{font-weight:500}
+  #lg{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #lg ::selection{background:var(--pine);color:#fff}
+  #lg a{color:var(--pine);text-decoration:none}
+  #lg a:hover{text-decoration:underline}
+  #lg h1,#lg h2,#lg h3{font-family:var(--serif);font-weight:500;line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+  #lg .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  #lg .nav{position:sticky;top:0;z-index:60;background:rgba(244,244,241,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  #lg .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  #lg .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:500;font-size:23px;letter-spacing:.02em;color:var(--ink)}
+  #lg .brand:hover{text-decoration:none}
+  #lg .brand .mk{width:30px;height:30px}
+  #lg .brand .mk svg{width:100%;height:100%;display:block}
+  #lg .nav-links{display:flex;align-items:center;gap:30px}
+  #lg .nav-links a{font-size:14.5px;color:var(--ink-2);font-weight:500}
+  #lg .nav-links a:hover{color:var(--pine);text-decoration:none}
+  #lg .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:500;font-size:15px;padding:10px 18px;border-radius:9px;border:1px solid var(--pine);background:var(--pine);color:#fff;cursor:pointer;transition:.2s}
+  #lg .btn:hover{background:var(--pine-2);text-decoration:none}
+
+  #lg .doc{max-width:760px;margin:0 auto;padding:60px 32px 90px}
+  #lg .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:16px}
+  #lg .eyebrow::before{content:"";width:20px;height:2px;background:var(--bronze)}
+  #lg .doc h1{font-size:clamp(34px,4.6vw,50px);letter-spacing:-.03em;margin-bottom:12px}
+  #lg .updated{color:var(--mute);font-size:14.5px;margin-bottom:8px}
+  #lg .lead{color:var(--ink-2);font-size:18px;margin:26px 0 8px}
+  #lg .doc h2{font-size:24px;margin:40px 0 12px}
+  #lg .doc p{color:var(--ink-2);margin:0 0 14px}
+  #lg .doc ul{margin:0 0 16px;padding-left:22px;color:var(--ink-2)}
+  #lg .doc li{margin:0 0 8px}
+  #lg .doc .box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:20px 0;box-shadow:var(--sh-sm)}
+  #lg .doc .box p:last-child{margin-bottom:0}
+
+  #lg footer{border-top:1px solid var(--line);padding:40px 0}
+  #lg .foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--mute-2)}
+  #lg .foot-in a{color:var(--mute)}
+  @media(max-width:880px){
+    #lg .wrap,#lg .doc{padding-left:22px;padding-right:22px}
+    #lg .nav-links a:not(.btn){display:none}
+  }
+</style>
+
+<div id="lg">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand"><span class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="9" width="50" height="50" rx="15" fill="#B07C3F"/><rect x="4" y="4" width="50" height="50" rx="15" fill="#2C5A48"/><g fill="#F4F4F1"><path d="M30 22 C 30 12 40 10 41 13 C 41 20 34 24 30 22 Z"/><ellipse cx="27.5" cy="34.5" rx="10.5" ry="14" transform="rotate(-16 27.5 34.5)"/></g></svg></span>BEANZ</a>
+    <nav class="nav-links">
+      <a href="index.html#pricing">Pricing</a>
+      <a href="care.html">Care plans</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact" class="btn">I'm interested</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="eyebrow">Terms</div>
+  <h1>Terms of Service</h1>
+  <p class="updated">Last updated: 26 August 2026</p>
+
+  <p class="lead">These terms set out how we work together when you buy a website or care plan from BEANZ Designs. They're written to be clear and fair — if anything's unclear, just ask.</p>
+
+  <h2>1. About these terms</h2>
+  <p>These terms apply to the design, build and ongoing care services provided by BEANZ Designs ("we", "us"). By asking us to start work or paying a deposit, you agree to them. Anything we specifically agree in writing for your project takes precedence over these general terms.</p>
+
+  <h2>2. Our services</h2>
+  <p>We provide website design and build packages, done-for-you copywriting, and optional monthly care plans. Exactly what's included depends on the package you choose and anything we agree in your proposal.</p>
+
+  <h2>3. Quotes and pricing</h2>
+  <ul>
+    <li>Package prices are shown on our website and confirmed in your proposal.</li>
+    <li>Any applicable VAT will be made clear before you commit.</li>
+    <li>Prices can change over time, but the price we quote for your project won't change once agreed, unless the scope changes.</li>
+  </ul>
+
+  <h2>4. Payment</h2>
+  <p>Unless we agree otherwise, we ask for a deposit before starting, with the balance due on completion and before the site goes live. Care plans are billed monthly in advance. We'll always confirm payment terms in writing before we begin.</p>
+
+  <h2>5. Working together</h2>
+  <p>To deliver your project on time, we'll need a few things from you:</p>
+  <ul>
+    <li>Timely responses, content and feedback when we ask for them.</li>
+    <li>Any materials you want included (logos, images, brand assets) and the right to use them.</li>
+    <li>A named point of contact who can approve work.</li>
+  </ul>
+  <p>Timelines we give are estimates and depend on us receiving what we need from you promptly.</p>
+
+  <h2>6. Revisions</h2>
+  <p>Each package includes a set number of revision rounds (shown with the package). Additional changes beyond that can be arranged as a one-off extra.</p>
+
+  <h2>7. Ownership</h2>
+  <p>Once your project is complete and paid for in full, the finished website and its content are yours. Until then, all work remains our property. We may show your finished website in our portfolio and marketing unless you ask us in writing not to.</p>
+
+  <h2>8. Care plans</h2>
+  <p>Care plans are monthly, rolling, and have no minimum term — you can cancel any time and they'll stop at the end of your current paid month. If you cancel, ongoing hosting, updates and support under the plan end, and you're responsible for arranging your own hosting and maintenance.</p>
+
+  <h2>9. Third-party services</h2>
+  <p>Your website may rely on third-party services (such as hosting, domain, email or booking tools). Those services have their own terms, and we're not responsible for issues caused by them or by changes they make.</p>
+
+  <h2>10. Liability</h2>
+  <p>We take real care with our work, but to the extent permitted by law our total liability to you is limited to the amount you've paid us for the work in question. We're not liable for indirect or consequential losses, such as loss of profit or business. Nothing in these terms limits liability that can't be limited by law.</p>
+
+  <h2>11. Ending our agreement</h2>
+  <p>Either of us can end a project if the other seriously breaches these terms and doesn't put it right within a reasonable time. If you cancel a project partway through, you'll be charged for work completed up to that point.</p>
+
+  <h2>12. Governing law</h2>
+  <p>These terms are governed by the laws of England and Wales, and any disputes will be subject to the courts of England and Wales.</p>
+
+  <div class="box">
+    <p>Questions about these terms? Email us at <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a> — we're happy to talk anything through before you commit.</p>
+  </div>
+
+  <p style="margin-top:36px"><a href="index.html">&larr; Back to home</a></p>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 BEANZ Designs</span>
+    <span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#pricing">Packages</a> &nbsp;&middot;&nbsp; <a href="index.html#contact">Contact</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+</div>

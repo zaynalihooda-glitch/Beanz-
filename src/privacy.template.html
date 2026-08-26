@@ -1,0 +1,150 @@
+<style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__INTER400__) format('woff2');font-display:block}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__INTER500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__NEWS400__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__NEWS500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:italic;font-weight:400;src:url(data:font/woff2;base64,__NEWS400I__) format('woff2');font-display:block}
+
+  :root{
+    --paper:#F4F4F1;--paper-2:#ECEBE5;--surface:#FFFFFF;
+    --ink:#1C231F;--ink-2:#33403A;--mute:#5E6B64;--mute-2:#8A938C;
+    --pine:#2C5A48;--pine-2:#224A3A;--pine-tint:#E6EEEA;--bronze:#B07C3F;--bronze-2:#956733;
+    --line:rgba(28,35,31,.13);--line-2:rgba(28,35,31,.22);
+    --sh-sm:0 1px 2px rgba(28,35,31,.06);
+    --maxw:1200px;--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  :root[data-theme]{color-scheme:light}
+  *{box-sizing:border-box;margin:0;padding:0}
+  strong,b{font-weight:500}
+  #lg{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  #lg ::selection{background:var(--pine);color:#fff}
+  #lg a{color:var(--pine);text-decoration:none}
+  #lg a:hover{text-decoration:underline}
+  #lg h1,#lg h2,#lg h3{font-family:var(--serif);font-weight:500;line-height:1.15;letter-spacing:-.02em;color:var(--ink)}
+  #lg .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+  #lg .nav{position:sticky;top:0;z-index:60;background:rgba(244,244,241,.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  #lg .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  #lg .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:500;font-size:23px;letter-spacing:.02em;color:var(--ink)}
+  #lg .brand:hover{text-decoration:none}
+  #lg .brand .mk{width:30px;height:30px}
+  #lg .brand .mk svg{width:100%;height:100%;display:block}
+  #lg .nav-links{display:flex;align-items:center;gap:30px}
+  #lg .nav-links a{font-size:14.5px;color:var(--ink-2);font-weight:500}
+  #lg .nav-links a:hover{color:var(--pine);text-decoration:none}
+  #lg .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:500;font-size:15px;padding:10px 18px;border-radius:9px;border:1px solid var(--pine);background:var(--pine);color:#fff;cursor:pointer;transition:.2s}
+  #lg .btn:hover{background:var(--pine-2);text-decoration:none}
+
+  #lg .doc{max-width:760px;margin:0 auto;padding:60px 32px 90px}
+  #lg .eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:12px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--pine);margin-bottom:16px}
+  #lg .eyebrow::before{content:"";width:20px;height:2px;background:var(--bronze)}
+  #lg .doc h1{font-size:clamp(34px,4.6vw,50px);letter-spacing:-.03em;margin-bottom:12px}
+  #lg .updated{color:var(--mute);font-size:14.5px;margin-bottom:8px}
+  #lg .lead{color:var(--ink-2);font-size:18px;margin:26px 0 8px}
+  #lg .doc h2{font-size:24px;margin:40px 0 12px}
+  #lg .doc h3{font-size:18px;margin:26px 0 8px}
+  #lg .doc p{color:var(--ink-2);margin:0 0 14px}
+  #lg .doc ul{margin:0 0 16px;padding-left:22px;color:var(--ink-2)}
+  #lg .doc li{margin:0 0 8px}
+  #lg .doc .box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin:20px 0;box-shadow:var(--sh-sm)}
+  #lg .doc .box p:last-child{margin-bottom:0}
+
+  #lg footer{border-top:1px solid var(--line);padding:40px 0}
+  #lg .foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--mute-2)}
+  #lg .foot-in a{color:var(--mute)}
+  @media(max-width:880px){
+    #lg .wrap,#lg .doc{padding-left:22px;padding-right:22px}
+    #lg .nav-links a:not(.btn){display:none}
+  }
+</style>
+
+<div id="lg">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand"><span class="mk"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="9" width="50" height="50" rx="15" fill="#B07C3F"/><rect x="4" y="4" width="50" height="50" rx="15" fill="#2C5A48"/><g fill="#F4F4F1"><path d="M30 22 C 30 12 40 10 41 13 C 41 20 34 24 30 22 Z"/><ellipse cx="27.5" cy="34.5" rx="10.5" ry="14" transform="rotate(-16 27.5 34.5)"/></g></svg></span>BEANZ</a>
+    <nav class="nav-links">
+      <a href="index.html#pricing">Pricing</a>
+      <a href="care.html">Care plans</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="faq.html">FAQ</a>
+      <a href="index.html#contact" class="btn">I'm interested</a>
+    </nav>
+  </div>
+</header>
+
+<main class="doc">
+  <div class="eyebrow">Privacy</div>
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: 26 August 2026</p>
+
+  <p class="lead">This policy explains what personal information BEANZ Designs collects when you use our website or get in touch, how we use it, and the rights you have over it.</p>
+
+  <h2>Who we are</h2>
+  <p>BEANZ Designs ("BEANZ", "we", "us") designs and builds websites for small businesses. For anything to do with your data, you can reach us at <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a>. We are the data controller for the personal information described here.</p>
+
+  <h2>What we collect</h2>
+  <p>We only collect what we need to reply to you and provide our services:</p>
+  <ul>
+    <li><strong>When you use our contact form:</strong> your name, business name, email address, phone number (if you give it), and whatever you write in your message.</li>
+    <li><strong>When you book a call:</strong> booking details are handled by Calendly (see "Who we share data with" below), which collects your name, email and chosen time.</li>
+    <li><strong>Automatically:</strong> our hosting provider keeps standard technical logs (such as IP address and browser type) to keep the site secure and running. We don't use these to identify you.</li>
+  </ul>
+
+  <h2>How we use it</h2>
+  <ul>
+    <li>To reply to your enquiry and discuss your project.</li>
+    <li>To provide and manage the services you ask us for.</li>
+    <li>To keep records of our work together and send you things like proposals or invoices.</li>
+    <li>To keep our website secure and working properly.</li>
+  </ul>
+
+  <h2>Our lawful basis</h2>
+  <p>Under UK GDPR, we rely on:</p>
+  <ul>
+    <li><strong>Legitimate interests</strong> — to respond to enquiries you send us and run our business.</li>
+    <li><strong>Contract</strong> — where we're providing services you've asked for.</li>
+    <li><strong>Consent</strong> — where you've actively chosen to give us information, such as submitting the contact form. You can withdraw consent at any time.</li>
+  </ul>
+
+  <h2>Who we share data with</h2>
+  <p>We don't sell your data or share it for marketing. We do use a small number of trusted providers to run the website and our business, who process data on our behalf:</p>
+  <ul>
+    <li><strong>Netlify</strong> — hosts the website and processes contact-form submissions.</li>
+    <li><strong>Calendly</strong> — handles call bookings.</li>
+    <li><strong>Hostinger</strong> — provides our domain and business email.</li>
+  </ul>
+  <p>Each has its own privacy and security terms. We only share what's necessary for them to perform their service.</p>
+
+  <h2>How long we keep it</h2>
+  <p>We keep enquiry details only as long as needed to deal with your enquiry and, if we work together, for as long as we have a business relationship plus any period required for legal, tax or accounting reasons. After that we delete or anonymise it. You can ask us to delete your data sooner (see your rights below).</p>
+
+  <h2>Cookies</h2>
+  <p>Our website is intentionally light on tracking. We don't use advertising or analytics cookies. Our providers (such as the booking tool) may set essential cookies needed to make their features work. If we ever add analytics in future, we'll update this policy and ask for consent where required.</p>
+
+  <h2>Your rights</h2>
+  <p>Under UK data protection law you have the right to:</p>
+  <ul>
+    <li>Ask for a copy of the personal data we hold about you.</li>
+    <li>Ask us to correct anything that's wrong.</li>
+    <li>Ask us to delete your data.</li>
+    <li>Object to, or ask us to restrict, how we use it.</li>
+    <li>Ask us to transfer your data to you or another provider.</li>
+  </ul>
+  <div class="box">
+    <p>To exercise any of these, email <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a> and we'll respond within one month.</p>
+    <p>If you're unhappy with how we've handled your data, you can complain to the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+  </div>
+
+  <h2>Changes to this policy</h2>
+  <p>We may update this policy from time to time. The date at the top shows when it was last changed.</p>
+
+  <p style="margin-top:36px"><a href="index.html">&larr; Back to home</a></p>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 BEANZ Designs</span>
+    <span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#pricing">Packages</a> &nbsp;&middot;&nbsp; <a href="index.html#contact">Contact</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+</div>
