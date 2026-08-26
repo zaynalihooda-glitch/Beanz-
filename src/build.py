@@ -52,6 +52,7 @@ def document(title, description, fragment, slug="", extra_head=""):
     head = (
         '<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">'
         '<meta name="viewport" content="width=device-width, initial-scale=1">'
+        '<meta name="google-site-verification" content="MJZJjFc45gIsImklM3PaLziyNsm8Tp-Ml3mj7bBLp34">'
         f'<title>{title}</title><meta name="description" content="{description}">'
         f'<link rel="canonical" href="{canonical}">'
         # Open Graph (Facebook, WhatsApp, iMessage, LinkedIn...)
