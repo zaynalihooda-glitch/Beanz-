@@ -386,6 +386,23 @@ footer{border-top:1px solid var(--rule);padding:38px 0 46px;background:var(--pap
 }
 .mock-note b{color:var(--brass);font-weight:600}
 
+/* Mobile tap targets. Inline links are only ~20px tall, well under the 44px
+   minimum — including the phone number, which is the whole point of the page.
+   Vertical padding grows the touch target; an equal negative margin cancels its
+   effect on layout, so nothing moves. */
+@media (max-width:720px){
+  .fact dd a,
+  .band-foot a,
+  .plan-foot a,
+  .foot-in a{
+    display:inline-block;
+    padding-block:13px;
+    margin-block:-13px;
+  }
+  .fact dd a[href^="tel:"]{font-size:21px;font-weight:500}
+  .mark{padding-block:8px}
+}
+
 /* ---------- sticky mobile call bar ---------- */
 .callbar{
   position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
