@@ -1,0 +1,801 @@
+<title>Chef House Doha</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap">
+
+<style>
+/* ============================================================
+   CHEF HOUSE — DOHA
+   Concept mock-up. Palette derived from the restaurant's own
+   round badge: olive leaf green, rice paper, brass.
+   ============================================================ */
+
+:root{
+  --paper:      #F7F1E4;
+  --paper-2:    #FFFBF2;
+  --paper-3:    #EFE6D3;
+  --ink:        #1B2418;
+  --ink-2:      #4A5645;
+  --ink-3:      #7A8573;
+  --rule:       #DFD3BC;
+  --rule-soft:  #E8DECA;
+  --leaf:       #4F7038;
+  --leaf-deep:  #24361F;
+  --brass:      #A87C2A;
+  --chilli:     #A6321E;
+
+  --band:       #21331C;
+  --band-2:     #2B4124;
+  --band-ink:   #F2ECDB;
+  --band-ink-2: #A9BC9B;
+  --band-rule:  #3C5433;
+
+  --btn-bg:     #24361F;
+  --btn-ink:    #FFFBF2;
+
+  --shadow: 0 1px 2px rgba(27,36,24,.05), 0 12px 32px -18px rgba(27,36,24,.28);
+
+  --f-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --f-body: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --f-ar: "Amiri", "Geeza Pro", "Noto Naskh Arabic", serif;
+
+  --wrap: 1140px;
+  --gut: clamp(20px, 5vw, 64px);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:      #141A11;
+    --paper-2:    #1C2418;
+    --paper-3:    #222C1D;
+    --ink:        #EFE8D8;
+    --ink-2:      #A8B49F;
+    --ink-3:      #7E8A76;
+    --rule:       #2E3A28;
+    --rule-soft:  #263021;
+    --leaf:       #9DC177;
+    --leaf-deep:  #C6DEA6;
+    --brass:      #D6AC57;
+    --chilli:     #E08268;
+
+    --band:       #0D1209;
+    --band-2:     #161E10;
+    --band-ink:   #EFE8D8;
+    --band-ink-2: #97A78C;
+    --band-rule:  #26311F;
+
+    --btn-bg:     #9DC177;
+    --btn-ink:    #101609;
+
+    --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:      #141A11;
+  --paper-2:    #1C2418;
+  --paper-3:    #222C1D;
+  --ink:        #EFE8D8;
+  --ink-2:      #A8B49F;
+  --ink-3:      #7E8A76;
+  --rule:       #2E3A28;
+  --rule-soft:  #263021;
+  --leaf:       #9DC177;
+  --leaf-deep:  #C6DEA6;
+  --brass:      #D6AC57;
+  --chilli:     #E08268;
+
+  --band:       #0D1209;
+  --band-2:     #161E10;
+  --band-ink:   #EFE8D8;
+  --band-ink-2: #97A78C;
+  --band-rule:  #26311F;
+
+  --btn-bg:     #9DC177;
+  --btn-ink:    #101609;
+
+  --shadow: 0 1px 2px rgba(0,0,0,.4), 0 12px 32px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--f-body);
+  font-weight:350;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0;letter-spacing:-.01em;line-height:1.02}
+
+.ar{font-family:var(--f-ar);direction:rtl;unicode-bidi:isolate}
+
+.eyebrow{
+  font-family:var(--f-body);
+  font-size:11px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.18em;
+  color:var(--ink-3);
+  display:flex;align-items:center;gap:12px;
+}
+.eyebrow::after{content:"";flex:1;height:1px;background:var(--rule)}
+.eyebrow .ar{font-size:15px;letter-spacing:0;text-transform:none;color:var(--brass);font-weight:400}
+
+a{color:inherit}
+:focus-visible{outline:2px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--f-body);font-size:15px;font-weight:500;
+  padding:14px 24px;border-radius:2px;border:1px solid transparent;
+  text-decoration:none;cursor:pointer;
+  transition:background .18s ease, color .18s ease, border-color .18s ease, transform .18s ease;
+}
+/* --btn-bg / --btn-ink are themed tokens so the button never
+   depends on a colour declared only inside a theme block. */
+.btn-primary{background:var(--btn-bg);color:var(--btn-ink)}
+.btn-primary:hover{transform:translateY(-1px)}
+.btn-ghost{border-color:var(--rule);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--leaf);color:var(--leaf)}
+
+/* ---------- header ---------- */
+header.top{
+  position:sticky;top:0;z-index:60;
+  background:color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter:saturate(1.4) blur(12px);
+  border-bottom:1px solid var(--rule-soft);
+}
+.top-in{display:flex;align-items:center;gap:24px;height:66px}
+.mark{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto}
+.mark svg{width:34px;height:34px;display:block}
+.mark b{font-family:var(--f-display);font-size:21px;font-weight:400;letter-spacing:.01em}
+.top nav{margin-left:auto;display:flex;gap:26px;align-items:center}
+.top nav a{
+  font-size:14px;font-weight:400;text-decoration:none;color:var(--ink-2);
+  padding-bottom:2px;border-bottom:1px solid transparent;transition:.18s;
+}
+.top nav a:hover{color:var(--ink);border-color:var(--brass)}
+.top .btn{padding:10px 18px;font-size:14px}
+@media (max-width:820px){ .top nav a{display:none} .top nav{margin-left:auto} }
+
+/* ---------- status chip ---------- */
+.chip{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:12.5px;font-weight:500;letter-spacing:.04em;text-transform:uppercase;
+  padding:7px 14px 7px 12px;border:1px solid var(--rule);border-radius:100px;
+  background:var(--paper-2);color:var(--ink-2);
+}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink-3);flex:0 0 auto}
+.chip.is-open .dot{background:var(--leaf);box-shadow:0 0 0 0 color-mix(in srgb,var(--leaf) 60%,transparent);animation:pulse 2.4s ease-out infinite}
+.chip.is-open{color:var(--leaf);border-color:color-mix(in srgb,var(--leaf) 35%,var(--rule))}
+.chip.is-shut .dot{background:var(--chilli)}
+@keyframes pulse{ to{box-shadow:0 0 0 9px transparent} }
+@media (prefers-reduced-motion:reduce){ .chip.is-open .dot{animation:none} }
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:clamp(56px,9vw,104px) 0 clamp(48px,7vw,84px);overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(120% 80% at 82% 8%, color-mix(in srgb,var(--brass) 12%,transparent) 0%, transparent 58%),
+    radial-gradient(90% 70% at 4% 96%, color-mix(in srgb,var(--leaf) 11%,transparent) 0%, transparent 60%);
+}
+.hero .wrap{position:relative}
+
+.masthead{max-width:960px}
+.masthead .ar-line{
+  font-family:var(--f-ar);font-size:clamp(19px,2.6vw,26px);color:var(--brass);
+  direction:rtl;text-align:left;margin-bottom:14px;
+}
+.masthead h1{
+  font-size:clamp(3.4rem,12.5vw,9.2rem);
+  line-height:.86;letter-spacing:-.035em;margin:0 0 6px;
+}
+.masthead h1 em{font-style:italic;color:var(--leaf);letter-spacing:-.02em}
+.rule-brass{height:1px;background:linear-gradient(90deg,var(--brass),transparent);margin:26px 0 24px;max-width:560px}
+
+.kicker{
+  font-size:clamp(18px,2.1vw,23px);font-weight:300;color:var(--ink-2);
+  max-width:52ch;line-height:1.5;margin:0 0 6px;
+}
+.kicker strong{font-weight:500;color:var(--ink)}
+
+.cuisines{display:flex;flex-wrap:wrap;align-items:center;gap:0 14px;margin:22px 0 34px;font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink-2)}
+.cuisines span:not(:last-child)::after{content:"·";margin-left:14px;color:var(--brass)}
+
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+
+.proof{
+  display:flex;flex-wrap:wrap;gap:0 30px;row-gap:14px;align-items:baseline;
+  margin-top:40px;padding-top:26px;border-top:1px solid var(--rule-soft);
+}
+.proof-item{display:flex;align-items:baseline;gap:9px}
+.proof-n{font-family:var(--f-display);font-size:30px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}
+.proof-l{font-size:12px;text-transform:uppercase;letter-spacing:.13em;color:var(--ink-3);font-weight:500}
+.stars{color:var(--brass);font-size:15px;letter-spacing:.08em}
+
+/* load-in */
+.rise{opacity:0;transform:translateY(14px);animation:rise .8s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){ .rise{animation:none;opacity:1;transform:none} }
+
+/* ---------- photo placeholders ---------- */
+.ph{
+  position:relative;border:1px solid var(--rule);background:var(--paper-3);
+  overflow:hidden;border-radius:2px;
+}
+.ph::before{
+  content:"";position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(112deg,
+      color-mix(in srgb,var(--leaf) 7%,transparent) 0 2px,
+      transparent 2px 13px);
+  opacity:.85;
+}
+.ph::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 60% at 50% 40%, color-mix(in srgb,var(--brass) 10%,transparent), transparent 70%);
+}
+.ph-label{
+  position:absolute;left:14px;bottom:12px;z-index:2;
+  font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ink-3);
+}
+.ph-glyph{position:absolute;inset:0;display:grid;place-items:center;z-index:1;opacity:.5}
+.ph-glyph svg{width:44px;height:44px;stroke:var(--leaf);fill:none;stroke-width:1.1}
+
+/* ---------- sections ---------- */
+section{padding:clamp(64px,8.5vw,110px) 0}
+.sec-head{margin-bottom:clamp(34px,4.5vw,56px);max-width:64ch}
+.sec-head h2{font-size:clamp(2.2rem,5.4vw,3.9rem);margin:18px 0 14px;line-height:1.02}
+.sec-head p{color:var(--ink-2);font-size:17.5px;font-weight:300;margin:0;max-width:56ch}
+
+/* ---------- cuisine band ---------- */
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:2px;overflow:hidden}
+@media (max-width:840px){ .three{grid-template-columns:1fr} }
+.cuis{background:var(--paper-2);padding:clamp(26px,3.4vw,38px);display:flex;flex-direction:column;gap:14px;transition:background .25s}
+.cuis:hover{background:var(--paper-3)}
+.cuis .num{font-family:var(--f-ar);font-size:26px;color:var(--brass);direction:rtl;line-height:1}
+.cuis h3{font-size:clamp(1.75rem,3vw,2.3rem)}
+.cuis p{margin:0;color:var(--ink-2);font-size:15.5px;font-weight:300;line-height:1.62}
+.cuis .ph{aspect-ratio:4/3;margin-top:auto}
+.tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:2px}
+.tag{
+  font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:500;
+  color:var(--ink-2);border:1px solid var(--rule);padding:5px 10px;border-radius:100px;
+}
+.tag.verified{border-color:color-mix(in srgb,var(--leaf) 45%,transparent);color:var(--leaf)}
+
+/* ---------- signatures ---------- */
+.sigs{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(28px,4vw,56px);align-items:start}
+@media (max-width:900px){ .sigs{grid-template-columns:1fr} }
+.dish{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule-soft)}
+.dish:first-child{border-top:1px solid var(--rule-soft)}
+.dish-body{flex:1;min-width:0}
+.dish h3{font-size:1.65rem;margin-bottom:5px}
+.dish h3 .ar{font-size:1.15rem;color:var(--brass);margin-left:10px}
+.dish p{margin:0;color:var(--ink-2);font-size:15px;font-weight:300}
+.heat{display:flex;gap:4px;align-items:center;padding-top:9px;flex:0 0 auto}
+.heat i{width:6px;height:6px;border-radius:50%;background:var(--rule);display:block}
+.heat i.on{background:var(--chilli)}
+.sig-aside .ph{aspect-ratio:3/4}
+.sig-note{
+  margin-top:16px;font-size:13px;color:var(--ink-3);font-weight:300;line-height:1.5;
+  border-left:2px solid var(--brass);padding-left:14px;
+}
+
+/* ---------- review band ---------- */
+.band{background:var(--band);color:var(--band-ink)}
+.band .eyebrow{color:var(--band-ink-2)}
+.band .eyebrow::after{background:var(--band-rule)}
+.band .sec-head h2{color:var(--band-ink)}
+.band .sec-head p{color:var(--band-ink-2)}
+
+.gscore{display:flex;flex-wrap:wrap;align-items:flex-end;gap:clamp(20px,4vw,54px);padding-bottom:38px;border-bottom:1px solid var(--band-rule)}
+.gscore .big{font-family:var(--f-display);font-size:clamp(4.4rem,11vw,7.5rem);line-height:.8;color:var(--band-ink);font-variant-numeric:tabular-nums}
+.gscore .meta{display:flex;flex-direction:column;gap:6px;padding-bottom:8px}
+.gscore .stars{font-size:19px;letter-spacing:.12em}
+.gscore .meta small{font-size:13px;color:var(--band-ink-2);letter-spacing:.04em}
+
+.gtags{display:flex;flex-wrap:wrap;gap:8px;margin-left:auto;padding-bottom:10px;max-width:420px}
+.gtag{
+  display:inline-flex;align-items:baseline;gap:7px;
+  border:1px solid var(--band-rule);border-radius:100px;padding:7px 13px;
+  font-size:12.5px;letter-spacing:.05em;color:var(--band-ink-2);
+}
+.gtag b{font-weight:600;color:var(--brass);font-variant-numeric:tabular-nums}
+
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--band-rule);margin-top:1px}
+@media (max-width:860px){ .quotes{grid-template-columns:1fr} }
+.q{margin:0;background:var(--band);padding:clamp(28px,3.6vw,44px) clamp(22px,2.6vw,34px);display:flex;flex-direction:column;gap:18px}
+.q blockquote{
+  margin:0;font-family:var(--f-display);font-style:italic;
+  font-size:clamp(1.5rem,2.5vw,1.95rem);line-height:1.22;color:var(--band-ink);
+}
+.q cite{font-style:normal;font-size:12.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--band-ink-2);margin-top:auto}
+.q cite span{display:block;text-transform:none;letter-spacing:.02em;color:var(--brass);font-size:12px;margin-top:4px}
+
+.band-foot{margin-top:34px;font-size:13px;color:var(--band-ink-2);font-weight:300}
+.band-foot a{color:var(--brass);text-underline-offset:3px}
+
+/* The single orchestrated moment on this page is the hero stagger (.rise).
+   Content below the fold renders plainly — no scroll-triggered fades, so
+   nothing can ever be left invisible if a script or observer misbehaves. */
+
+/* ---------- find us ---------- */
+.find{display:grid;grid-template-columns:.95fr 1.05fr;gap:clamp(30px,5vw,64px);align-items:start}
+@media (max-width:900px){ .find{grid-template-columns:1fr} }
+
+.facts{margin:0;display:flex;flex-direction:column;gap:0}
+.fact{padding:20px 0;border-bottom:1px solid var(--rule-soft);display:grid;grid-template-columns:112px 1fr;gap:18px;align-items:baseline}
+.fact:first-child{border-top:1px solid var(--rule-soft)}
+.fact dt{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.15em;color:var(--ink-3)}
+.fact dd{margin:0;font-size:16.5px;color:var(--ink)}
+.fact dd a{color:var(--leaf);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--leaf) 40%,transparent)}
+.fact dd a:hover{border-color:var(--leaf)}
+.fact dd small{display:block;color:var(--ink-3);font-size:13.5px;margin-top:3px;font-weight:300}
+.hours-row{display:flex;justify-content:space-between;gap:20px;font-variant-numeric:tabular-nums;max-width:300px}
+@media (max-width:520px){ .fact{grid-template-columns:1fr;gap:5px} }
+
+/* plan / map */
+.plan{position:relative;border:1px solid var(--rule);border-radius:2px;background:var(--paper-2);overflow:hidden;aspect-ratio:1/1;min-height:340px}
+.plan svg{position:absolute;inset:0;width:100%;height:100%}
+.plan .pin-label{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  text-align:center;z-index:2;pointer-events:none;
+}
+.plan .pin-label b{
+  display:block;font-family:var(--f-display);font-size:20px;font-weight:400;color:var(--ink);
+  background:var(--paper-2);padding:6px 14px;border:1px solid var(--rule);border-radius:2px;box-shadow:var(--shadow);
+}
+.plan-foot{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;
+  display:flex;justify-content:space-between;align-items:center;gap:12px;
+  padding:12px 16px;background:color-mix(in srgb,var(--paper-2) 92%,transparent);
+  border-top:1px solid var(--rule);
+  font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);font-weight:500;
+}
+.plan-foot a{color:var(--leaf);text-decoration:none}
+
+/* ---------- closing ---------- */
+.close-cta{text-align:center;padding-bottom:clamp(80px,10vw,130px)}
+.close-cta h2{font-size:clamp(2.4rem,7vw,5rem);margin-bottom:20px}
+.close-cta h2 em{font-style:italic;color:var(--leaf)}
+.close-cta .ar-line{font-family:var(--f-ar);font-size:22px;color:var(--brass);margin-bottom:18px;direction:rtl}
+.close-cta p{color:var(--ink-2);max-width:44ch;margin:0 auto 30px;font-weight:300}
+.close-cta .hero-cta{justify-content:center}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--rule);padding:38px 0 46px;background:var(--paper-2)}
+.foot-in{display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between;font-size:13.5px;color:var(--ink-3);font-weight:300}
+.foot-in a{color:var(--ink-2);text-decoration:none;border-bottom:1px solid var(--rule)}
+.foot-in a:hover{color:var(--leaf);border-color:var(--leaf)}
+.credit{display:flex;align-items:center;gap:9px}
+.credit .beanz{font-weight:600;color:var(--ink-2);letter-spacing:.02em}
+
+/* mock notice */
+.mock-note{
+  background:var(--band-2);color:var(--band-ink-2);
+  font-size:12px;letter-spacing:.06em;text-align:center;padding:9px 16px;
+}
+.mock-note b{color:var(--brass);font-weight:600}
+
+/* ---------- sticky mobile call bar ---------- */
+.callbar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:none;
+  gap:1px;background:var(--rule);border-top:1px solid var(--rule);
+}
+.callbar a{
+  flex:1;background:var(--paper-2);text-align:center;padding:15px 8px;
+  font-size:14px;font-weight:500;text-decoration:none;color:var(--ink);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.callbar a.primary{background:var(--btn-bg);color:var(--btn-ink)}
+@media (max-width:720px){ .callbar{display:flex} body{padding-bottom:56px} }
+</style>
+
+<div class="mock-note">
+  Concept mock-up for <b>Chef House, Doha</b> — designed unprompted by BEANZ Designs. Not a live site.
+</div>
+
+<header class="top">
+  <div class="wrap top-in">
+    <a class="mark" href="#top" aria-label="Chef House, home">
+      <svg viewBox="0 0 44 44" aria-hidden="true">
+        <circle cx="22" cy="22" r="20.5" fill="none" stroke="var(--leaf)" stroke-width="1.1"/>
+        <circle cx="22" cy="22" r="17.5" fill="none" stroke="var(--brass)" stroke-width=".6"/>
+        <path d="M22 12.5c-3.4 2.1-5 5-5 8.2 0 3.1 2.2 5.4 5 5.4s5-2.3 5-5.4c0-3.2-1.6-6.1-5-8.2z" fill="none" stroke="var(--leaf)" stroke-width="1.3" stroke-linejoin="round"/>
+        <path d="M22 15.5v16" stroke="var(--leaf)" stroke-width="1.3" stroke-linecap="round"/>
+      </svg>
+      <b>Chef House</b>
+    </a>
+    <nav>
+      <a href="#kitchen">What we cook</a>
+      <a href="#dishes">Signatures</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#find">Find us</a>
+      <a class="btn btn-primary" href="tel:+97470808277">Call 7080 8277</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="masthead">
+        <div class="ar-line rise" style="animation-delay:.05s">شيف هاوس</div>
+        <h1 class="rise" style="animation-delay:.12s">Chef&nbsp;House<br><em>Doha</em></h1>
+        <div class="rule-brass rise" style="animation-delay:.2s"></div>
+        <p class="kicker rise" style="animation-delay:.26s">
+          A family kitchen on Al Jazeera Street, cooking the food we grew up on.
+          <strong>Kerala plates, Chinese favourites and Arabic grills</strong> — big portions,
+          honest prices, late every night.
+        </p>
+        <div class="cuisines rise" style="animation-delay:.32s">
+          <span>Indian</span><span>Chinese</span><span>Arabic</span>
+        </div>
+        <div class="hero-cta rise" style="animation-delay:.38s">
+          <a class="btn btn-primary" href="tel:+97470808277">Call 7080 8277</a>
+          <a class="btn btn-ghost" href="#find">Get directions</a>
+          <span class="chip" id="status" aria-live="polite"><span class="dot"></span><span id="status-text">Checking hours…</span></span>
+        </div>
+
+        <div class="proof rise" style="animation-delay:.46s">
+          <div class="proof-item">
+            <span class="proof-n">4.3</span>
+            <span class="proof-l"><span class="stars">★★★★</span> on Google</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-n">26</span>
+            <span class="proof-l">reviews</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-n">QAR&nbsp;1–50</span>
+            <span class="proof-l">per person</span>
+          </div>
+          <div class="proof-item">
+            <span class="proof-n">11:30</span>
+            <span class="proof-l">pm last orders</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THREE KITCHENS ============ -->
+  <section id="kitchen">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Three kitchens, one house <span class="ar">ثلاثة مطابخ</span></p>
+        <h2>One menu, three ways of cooking</h2>
+        <p>Most nights a table here orders across all three — a Kerala meals for one person,
+          chilli chicken for the kids, mixed grill for the table. Nobody has to compromise.</p>
+      </div>
+
+      <div class="three">
+        <article class="cuis rv">
+          <div class="num">هندي</div>
+          <h3>Indian</h3>
+          <p>Kerala at the heart of it — rice meals with a spread of sides, dry-fried beef,
+            biryani cooked in quantity. Reviewers keep using the same word: authentic.</p>
+          <div class="tags">
+            <span class="tag verified">Kerala meals</span>
+            <span class="tag verified">Beef dry fry</span>
+            <span class="tag">Biryani</span>
+          </div>
+          <div class="ph">
+            <div class="ph-glyph"><svg viewBox="0 0 40 40"><circle cx="20" cy="21" r="11"/><path d="M6 21h28M20 10c0-3 2-4 2-4"/></svg></div>
+            <span class="ph-label">Photo · Kerala meals</span>
+          </div>
+        </article>
+
+        <article class="cuis rv" style="transition-delay:.08s">
+          <div class="num">صيني</div>
+          <h3>Chinese</h3>
+          <p>The Indo-Chinese end of the menu — hot, fast, wok-cooked, and the reason
+            half the families in Bin Mahmoud order takeaway on a weeknight.</p>
+          <div class="tags">
+            <span class="tag">Wok dishes</span>
+            <span class="tag">Fried rice &amp; noodles</span>
+          </div>
+          <div class="ph">
+            <div class="ph-glyph"><svg viewBox="0 0 40 40"><path d="M8 16h24l-3 15H11z"/><path d="M14 16c0-5 3-8 6-8s6 3 6 8"/></svg></div>
+            <span class="ph-label">Photo · Wok station</span>
+          </div>
+        </article>
+
+        <article class="cuis rv" style="transition-delay:.16s">
+          <div class="num">عربي</div>
+          <h3>Arabic</h3>
+          <p>Grills and breakfast, the way Doha actually eats them. Open early, open late,
+            and priced so you can come twice a week without thinking about it.</p>
+          <div class="tags">
+            <span class="tag">Grills</span>
+            <span class="tag">Breakfast</span>
+          </div>
+          <div class="ph">
+            <div class="ph-glyph"><svg viewBox="0 0 40 40"><path d="M10 26h20M12 26V14M20 26V12M28 26v-9"/><path d="M8 30h24"/></svg></div>
+            <span class="ph-label">Photo · Mixed grill</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SIGNATURES ============ -->
+  <section id="dishes" style="background:var(--paper-2);border-block:1px solid var(--rule-soft)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What people come back for <span class="ar">أطباقنا المميزة</span></p>
+        <h2>The plates our regulars order without looking</h2>
+      </div>
+
+      <div class="sigs">
+        <div>
+          <div class="dish rv">
+            <div class="dish-body">
+              <h3>Kerala meals <span class="ar">وجبة كيرالا</span></h3>
+              <p>Rice, and as many sides as the plate will hold. The dish reviewers single out
+                most often — “all sides are really tasty.”</p>
+            </div>
+            <div class="heat" title="Medium spice"><i class="on"></i><i class="on"></i><i></i></div>
+          </div>
+
+          <div class="dish rv" style="transition-delay:.06s">
+            <div class="dish-body">
+              <h3>Beef dry fry <span class="ar">لحم مقلي</span></h3>
+              <p>Slow-cooked, then fried hard with curry leaf and coconut slivers.
+                One reviewer's verdict: “super tasty.”</p>
+            </div>
+            <div class="heat" title="Hot"><i class="on"></i><i class="on"></i><i class="on"></i></div>
+          </div>
+
+          <div class="dish rv" style="transition-delay:.12s">
+            <div class="dish-body">
+              <h3>Biryani <span class="ar">برياني</span></h3>
+              <p>Cooked in quantity, served in quantity. Come hungry or plan on
+                taking half of it home.</p>
+            </div>
+            <div class="heat" title="Medium spice"><i class="on"></i><i class="on"></i><i></i></div>
+          </div>
+
+          <div class="dish rv" style="transition-delay:.18s">
+            <div class="dish-body">
+              <h3>Mixed grill <span class="ar">مشاوي مشكلة</span></h3>
+              <p>For the table, not for one. The order that turns a weeknight dinner
+                into something worth staying out for.</p>
+            </div>
+            <div class="heat" title="Mild"><i class="on"></i><i></i><i></i></div>
+          </div>
+
+          <p class="sig-note">
+            Full menu and prices to follow — this page is built to hold them the moment
+            the kitchen sends them over.
+          </p>
+        </div>
+
+        <aside class="sig-aside rv" style="transition-delay:.1s">
+          <div class="ph">
+            <div class="ph-glyph"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="7"/></svg></div>
+            <span class="ph-label">Photo · The signature plate</span>
+          </div>
+          <p class="sig-note" style="border-color:var(--leaf)">
+            Every placeholder on this page is one drag-and-drop away from a real photograph.
+            Chef House already shoots good food pictures for Instagram — this is where they belong.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ REVIEWS ============ -->
+  <section id="reviews" class="band">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What Doha says <span class="ar">آراء الضيوف</span></p>
+        <h2>Twenty-six people have already reviewed us. Here's the short version.</h2>
+      </div>
+
+      <div class="gscore rv">
+        <div class="big">4.3</div>
+        <div class="meta">
+          <div class="stars">★★★★☆</div>
+          <small>26 Google reviews · Al Jazeera St, Doha</small>
+        </div>
+        <div class="gtags">
+          <span class="gtag">Food <b>7</b></span>
+          <span class="gtag">Welcoming staff <b>2</b></span>
+          <span class="gtag">Value <b>2</b></span>
+          <span class="gtag">Vibes <b>2</b></span>
+          <span class="gtag">Quantity <b>2</b></span>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <figure class="q rv">
+          <blockquote>“Authentic, very tasty… the perfect level of spice.”</blockquote>
+          <cite>Fasin Abubacker <span>Google Local Guide</span></cite>
+        </figure>
+        <figure class="q rv" style="transition-delay:.08s">
+          <blockquote>“Beef dry fry was super tasty.”</blockquote>
+          <cite>Bijilal Puthiyottil <span>Google Local Guide</span></cite>
+        </figure>
+        <figure class="q rv" style="transition-delay:.16s">
+          <blockquote>“Good food and affordable.”</blockquote>
+          <cite>Aboobacker Sidhique <span>Google review</span></cite>
+        </figure>
+      </div>
+
+      <p class="band-foot">
+        Excerpts from public Google reviews of Chef House Restaurant, Doha. Tag counts are Google's own.
+        <a href="https://www.google.com/maps/place/Chef+House+Restaurant/data=!4m7!3m6!1s0x3e45c5e88b8f76d5:0xdd55f0d87efe8bd5!8m2!3d25.2844932!4d51.511642!16s%2Fg%2F11ynyk9jrf!19sChIJ1XaPi-jFRT4R1Yv-ftjwVd0" target="_blank" rel="noopener">Read all 26 on Google&nbsp;→</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ FIND US ============ -->
+  <section id="find">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Find us <span class="ar">موقعنا</span></p>
+        <h2>Al Jazeera Street, Doha</h2>
+        <p>Dine in or take away. Parking on the street, and we're still serving when
+          most kitchens in the neighbourhood have shut.</p>
+      </div>
+
+      <div class="find">
+        <dl class="facts">
+          <div class="fact">
+            <dt>Address</dt>
+            <dd>Al Jazeera St, Doha, Qatar
+              <small>Plus code 7GM6+QM · near Ibn Mahmoud St, Fereej Bin Mahmoud</small></dd>
+          </div>
+          <div class="fact">
+            <dt>Phone</dt>
+            <dd><a href="tel:+97470808277">7080 8277</a>
+              <small>Call ahead for large tables and takeaway orders</small></dd>
+          </div>
+          <div class="fact">
+            <dt>Hours</dt>
+            <dd>
+              <div class="hours-row"><span>Every day</span><span>7:00 am – 11:30 pm</span></div>
+              <small>Last orders 11:30 pm</small>
+            </dd>
+          </div>
+          <div class="fact">
+            <dt>Service</dt>
+            <dd>Dine-in · Takeaway
+              <small>Delivery available through the usual apps</small></dd>
+          </div>
+          <div class="fact">
+            <dt>Instagram</dt>
+            <dd><a href="https://www.instagram.com/chefhouse.qa/" target="_blank" rel="noopener">@chefhouse.qa</a>
+              <small>3,400+ followers</small></dd>
+          </div>
+        </dl>
+
+        <div class="plan rv">
+          <svg viewBox="0 0 400 400" role="img" aria-label="Sketch plan of Al Jazeera Street showing Chef House">
+            <defs>
+              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M40 0H0v40" fill="none" stroke="var(--rule-soft)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="400" height="400" fill="url(#grid)"/>
+            <!-- blocks -->
+            <g fill="var(--paper-3)" stroke="var(--rule)" stroke-width="1">
+              <rect x="26" y="28" width="130" height="112" rx="2"/>
+              <rect x="236" y="28" width="140" height="112" rx="2"/>
+              <rect x="26" y="248" width="130" height="126" rx="2"/>
+              <rect x="236" y="248" width="140" height="126" rx="2"/>
+            </g>
+            <!-- roads -->
+            <path d="M0 194h400" stroke="var(--brass)" stroke-width="26" opacity=".16"/>
+            <path d="M0 194h400" stroke="var(--brass)" stroke-width="1" stroke-dasharray="10 12" opacity=".65"/>
+            <path d="M196 0v400" stroke="var(--rule)" stroke-width="20" opacity=".5"/>
+            <text x="18" y="186" font-family="Outfit, sans-serif" font-size="11" letter-spacing="2.2" fill="var(--ink-3)">AL JAZEERA ST</text>
+            <text x="204" y="384" font-family="Outfit, sans-serif" font-size="11" letter-spacing="2.2" fill="var(--ink-3)">IBN MAHMOUD ST</text>
+            <!-- marker -->
+            <circle cx="196" cy="194" r="34" fill="none" stroke="var(--leaf)" stroke-width="1" opacity=".45"/>
+            <circle cx="196" cy="194" r="7" fill="var(--leaf)"/>
+          </svg>
+          <div class="pin-label"><b>Chef House</b></div>
+          <div class="plan-foot">
+            <span>7GM6+QM Doha</span>
+            <a href="https://www.google.com/maps/place/Chef+House+Restaurant/data=!4m7!3m6!1s0x3e45c5e88b8f76d5:0xdd55f0d87efe8bd5!8m2!3d25.2844932!4d51.511642!16s%2Fg%2F11ynyk9jrf!19sChIJ1XaPi-jFRT4R1Yv-ftjwVd0" target="_blank" rel="noopener">Open in Maps →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSE ============ -->
+  <section class="close-cta">
+    <div class="wrap">
+      <div class="ar-line">أهلاً وسهلاً</div>
+      <h2>Pull up a chair,<br><em>we're open till 11:30</em></h2>
+      <p>No booking needed. Bring the family, bring your appetite, and let us feed you properly.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="tel:+97470808277">Call 7080 8277</a>
+        <a class="btn btn-ghost" href="https://www.google.com/maps/place/Chef+House+Restaurant/data=!4m7!3m6!1s0x3e45c5e88b8f76d5:0xdd55f0d87efe8bd5!8m2!3d25.2844932!4d51.511642!16s%2Fg%2F11ynyk9jrf!19sChIJ1XaPi-jFRT4R1Yv-ftjwVd0" target="_blank" rel="noopener">Directions</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>Chef House · Al Jazeera St, Doha, Qatar · 7080 8277</span>
+    <span class="credit">Concept designed by <a href="https://beanzdesigns.com" target="_blank" rel="noopener" class="beanz">BEANZ Designs</a></span>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="primary" href="tel:+97470808277">Call</a>
+  <a href="#find">Directions</a>
+</div>
+
+<script>
+(function(){
+  // Live open/closed status in Doha time (Asia/Qatar). Hours: 07:00–23:30 daily.
+  var OPEN = 7 * 60, CLOSE = 23 * 60 + 30;
+
+  function dohaMinutes(){
+    try{
+      var p = new Intl.DateTimeFormat('en-GB',{
+        timeZone:'Asia/Qatar', hour:'2-digit', minute:'2-digit', hour12:false
+      }).formatToParts(new Date());
+      var h = 0, m = 0;
+      p.forEach(function(x){ if(x.type==='hour') h = +x.value; if(x.type==='minute') m = +x.value; });
+      return h*60+m;
+    }catch(e){ return null; }
+  }
+
+  function fmt(mins){
+    var h = Math.floor(mins/60), m = mins%60;
+    var ap = h >= 12 ? 'pm' : 'am';
+    var hh = h % 12; if(hh === 0) hh = 12;
+    return hh + (m ? ':' + String(m).padStart(2,'0') : '') + ' ' + ap;
+  }
+
+  function paint(){
+    var el = document.getElementById('status');
+    var txt = document.getElementById('status-text');
+    if(!el || !txt) return;
+    var now = dohaMinutes();
+    if(now === null){ txt.textContent = 'Open daily 7 am – 11:30 pm'; return; }
+
+    el.classList.remove('is-open','is-shut');
+    if(now >= OPEN && now < CLOSE){
+      el.classList.add('is-open');
+      var left = CLOSE - now;
+      txt.textContent = left <= 60
+        ? 'Open · closing in ' + left + ' min'
+        : 'Open now · till ' + fmt(CLOSE);
+    } else {
+      el.classList.add('is-shut');
+      txt.textContent = 'Closed · opens ' + fmt(OPEN);
+    }
+  }
+  paint();
+  setInterval(paint, 60000);
+
+  // Smooth in-page nav
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(ev){
+      var t = document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      ev.preventDefault();
+      t.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+  });
+})();
+</script>

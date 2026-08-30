@@ -1,0 +1,523 @@
+<title>Chef House Website Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&family=Inter:wght@300;400;500;600&display=swap">
+
+<style>
+/* ============================================================
+   BEANZ DESIGNS — proposal document
+   House identity: Stone & Pine. Newsreader + Inter.
+   Deliberately NOT the client mock-up's identity.
+   ============================================================ */
+
+:root{
+  --paper:   #F4F4F1;
+  --card:    #FFFFFF;
+  --ink:     #1C231F;
+  --ink-2:   #4C574F;
+  --ink-3:   #7C857D;
+  --rule:    #DCDDD7;
+  --rule-2:  #E8E9E4;
+  --pine:    #2C5A48;
+  --pine-lt: #E4EDE8;
+  --bronze:  #B07C3F;
+  --bronze-lt:#F5EDE2;
+
+  --f-head: "Newsreader", Georgia, "Times New Roman", serif;
+  --f-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --wrap: 860px;
+  --gut: clamp(22px, 5vw, 56px);
+}
+
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:   #141715;
+    --card:    #1B201D;
+    --ink:     #E9EAE5;
+    --ink-2:   #A7B0A8;
+    --ink-3:   #7B857C;
+    --rule:    #2B322D;
+    --rule-2:  #242A26;
+    --pine:    #7FBFA3;
+    --pine-lt: #1D2A24;
+    --bronze:  #D2A063;
+    --bronze-lt:#2A2119;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:   #141715;
+  --card:    #1B201D;
+  --ink:     #E9EAE5;
+  --ink-2:   #A7B0A8;
+  --ink-3:   #7B857C;
+  --rule:    #2B322D;
+  --rule-2:  #242A26;
+  --pine:    #7FBFA3;
+  --pine-lt: #1D2A24;
+  --bronze:  #D2A063;
+  --bronze-lt:#2A2119;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--f-body);font-size:16px;line-height:1.65;font-weight:400;
+  -webkit-font-smoothing:antialiased;
+}
+.doc{max-width:var(--wrap);margin-inline:auto;padding:0 var(--gut) 90px}
+
+h1,h2,h3{font-family:var(--f-head);font-weight:400;margin:0;text-wrap:balance;line-height:1.15}
+p{margin:0}
+a{color:var(--pine)}
+
+.label{
+  font-family:var(--f-body);font-size:10.5px;font-weight:600;
+  text-transform:uppercase;letter-spacing:.17em;color:var(--ink-3);
+}
+
+/* ---------- letterhead ---------- */
+.letterhead{
+  display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+  padding:26px 0 22px;border-bottom:1px solid var(--rule);margin-bottom:clamp(40px,7vw,72px);
+}
+.brand{display:flex;align-items:center;gap:11px}
+.brand svg{width:30px;height:30px;display:block;flex:0 0 auto}
+.brand b{font-family:var(--f-body);font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.meta-right{text-align:right;font-size:12.5px;color:var(--ink-3);line-height:1.5}
+
+/* ---------- opening ---------- */
+.opening{margin-bottom:clamp(46px,7vw,80px)}
+.opening .label{margin-bottom:16px;display:block}
+.opening h1{font-size:clamp(2.1rem,5.2vw,3.35rem);letter-spacing:-.015em;margin-bottom:22px}
+.opening h1 em{font-style:italic;color:var(--pine)}
+.lede{font-size:clamp(17px,2vw,19px);color:var(--ink-2);max-width:62ch;font-weight:300;line-height:1.62}
+.lede + .lede{margin-top:14px}
+
+/* ---------- section shell ---------- */
+.sec{margin-bottom:clamp(44px,6.5vw,76px)}
+.sec > .label{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.sec > .label::after{content:"";flex:1;height:1px;background:var(--rule)}
+.sec h2{font-size:clamp(1.5rem,3.4vw,2.05rem);margin-bottom:14px;letter-spacing:-.01em}
+.sec > p{color:var(--ink-2);max-width:64ch;font-weight:300}
+
+/* ---------- findings table ---------- */
+.findings{border:1px solid var(--rule);border-radius:3px;background:var(--card);overflow:hidden;margin-top:24px}
+.f-row{
+  display:grid;grid-template-columns:1fr auto auto;gap:18px;align-items:center;
+  padding:15px 20px;border-top:1px solid var(--rule-2);
+}
+.f-row:first-child{border-top:0}
+.f-row .what{font-size:15px;color:var(--ink-2);font-weight:300}
+.f-row .val{font-family:var(--f-head);font-size:19px;color:var(--ink);font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.f-row .src{
+  font-size:10px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;
+  color:var(--ink-3);border:1px solid var(--rule);border-radius:100px;padding:3px 9px;white-space:nowrap;
+}
+.f-row.flag{background:var(--bronze-lt)}
+.f-row.flag .val{color:var(--bronze)}
+@media (max-width:620px){
+  .f-row{grid-template-columns:1fr auto;row-gap:8px}
+  .f-row .src{grid-column:1 / -1;justify-self:start}
+}
+
+/* ---------- gap list ---------- */
+.gaps{display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:24px}
+.gap{background:var(--card);padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start}
+.gap .n{
+  font-family:var(--f-head);font-size:15px;color:var(--bronze);
+  border:1px solid var(--bronze);border-radius:50%;width:28px;height:28px;
+  display:grid;place-items:center;flex:0 0 auto;font-variant-numeric:tabular-nums;
+}
+.gap h3{font-size:17px;font-family:var(--f-body);font-weight:600;margin-bottom:5px;letter-spacing:-.005em}
+.gap p{font-size:14.5px;color:var(--ink-2);font-weight:300;line-height:1.6}
+
+/* ---------- mock-up callout ---------- */
+.mock{
+  border:1px solid var(--pine);border-radius:3px;overflow:hidden;
+  background:var(--pine-lt);margin-top:24px;
+}
+.mock-top{padding:26px clamp(20px,3.5vw,32px)}
+.mock-top h3{font-family:var(--f-head);font-size:clamp(1.35rem,3vw,1.75rem);margin-bottom:10px}
+.mock-top p{color:var(--ink-2);font-size:15px;font-weight:300;max-width:56ch}
+.mock-link{
+  display:inline-flex;align-items:center;gap:9px;margin-top:18px;
+  background:var(--pine);color:var(--paper);text-decoration:none;
+  font-size:14.5px;font-weight:500;padding:12px 22px;border-radius:2px;
+  transition:transform .18s ease;
+}
+:root[data-theme="dark"] .mock-link{color:#101613}
+@media (prefers-color-scheme:dark){ :root:not([data-theme="light"]) .mock-link{color:#101613} }
+.mock-link:hover{transform:translateY(-1px)}
+.mock-list{
+  list-style:none;margin:0;padding:22px clamp(20px,3.5vw,32px) 26px;
+  background:var(--card);border-top:1px solid var(--rule);
+  display:grid;gap:11px;
+}
+.mock-list li{position:relative;padding-left:26px;font-size:14.5px;color:var(--ink-2);font-weight:300}
+.mock-list li::before{
+  content:"";position:absolute;left:3px;top:7px;width:10px;height:5px;
+  border-left:1.5px solid var(--pine);border-bottom:1.5px solid var(--pine);
+  transform:rotate(-45deg);
+}
+.mock-list li b{font-weight:500;color:var(--ink)}
+
+/* ---------- checklist ---------- */
+.need{margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-top:24px}
+@media (max-width:640px){ .need{grid-template-columns:1fr} }
+.need div{background:var(--card);padding:18px 20px}
+.need dt{font-size:14.5px;font-weight:500;margin-bottom:4px}
+.need dd{margin:0;font-size:13.5px;color:var(--ink-3);font-weight:300;line-height:1.55}
+
+/* ---------- tiers ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+@media (max-width:780px){ .tiers{grid-template-columns:1fr} }
+.tier{
+  border:1px solid var(--rule);border-radius:3px;background:var(--card);
+  padding:24px 22px;display:flex;flex-direction:column;gap:12px;
+}
+.tier.pick{border-color:var(--pine);box-shadow:0 0 0 1px var(--pine)}
+.tier .label{color:var(--ink-3)}
+.tier.pick .label{color:var(--pine)}
+.tier h3{font-family:var(--f-head);font-size:1.5rem}
+.tier .price{font-family:var(--f-head);font-size:1.7rem;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.tier .price small{display:block;font-family:var(--f-body);font-size:11.5px;color:var(--ink-3);letter-spacing:.06em;margin-top:5px;font-weight:400}
+.tier ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:14px;color:var(--ink-2);font-weight:300}
+.tier ul li{position:relative;padding-left:16px}
+.tier ul li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--bronze)}
+.fx-note{margin-top:16px;font-size:12.5px;color:var(--ink-3);font-weight:300;border-left:2px solid var(--bronze);padding-left:13px;max-width:62ch;line-height:1.55}
+
+h3.sub{
+  font-family:var(--f-head);font-size:1.3rem;margin:44px 0 8px;letter-spacing:-.005em;
+}
+.sub-p{color:var(--ink-2);font-weight:300;font-size:15px;max-width:62ch;margin-bottom:4px}
+.tier .worth{color:var(--bronze);white-space:nowrap}
+.tier ul li b{font-weight:600;color:var(--ink)}
+.findings.care{margin-top:18px}
+.findings.care .what{max-width:none}
+.findings.care .what b{font-weight:600;color:var(--ink)}
+.findings.care .f-row{grid-template-columns:1fr auto;align-items:baseline}
+.findings.care .val small{
+  display:inline;font-family:var(--f-body);font-size:11.5px;color:var(--ink-3);
+  letter-spacing:.05em;margin-left:3px;
+}
+
+.extras{
+  margin-top:18px;border:1px solid var(--rule);border-radius:3px;background:var(--card);overflow:hidden;
+}
+.ex{
+  display:flex;flex-wrap:wrap;gap:8px 18px;justify-content:space-between;align-items:baseline;
+  padding:13px 20px;border-top:1px solid var(--rule-2);font-size:14.5px;
+}
+.ex:first-child{border-top:0}
+.ex span:first-child{color:var(--ink-2);font-weight:300}
+.ex span:last-child{color:var(--ink);font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- timeline ---------- */
+.steps{margin-top:24px;border-left:1px solid var(--rule);padding-left:0}
+.step{position:relative;padding:0 0 26px 30px}
+.step:last-child{padding-bottom:0}
+.step::before{
+  content:"";position:absolute;left:-4.5px;top:8px;width:8px;height:8px;
+  border-radius:50%;background:var(--paper);border:1.5px solid var(--pine);
+}
+.step .when{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--bronze);font-weight:600;display:block;margin-bottom:4px}
+.step h3{font-family:var(--f-body);font-size:16px;font-weight:600;margin-bottom:4px}
+.step p{font-size:14.5px;color:var(--ink-2);font-weight:300;max-width:58ch}
+
+/* ---------- sign off ---------- */
+.signoff{
+  margin-top:clamp(48px,7vw,80px);padding-top:32px;border-top:1px solid var(--rule);
+  display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;
+}
+.signoff .who{font-family:var(--f-head);font-size:1.35rem}
+.signoff .who span{display:block;font-family:var(--f-body);font-size:13px;color:var(--ink-3);letter-spacing:.03em;margin-top:5px;font-weight:400}
+.signoff .contact{font-size:14px;color:var(--ink-2);text-align:right;line-height:1.75}
+.signoff .contact a{text-decoration:none;border-bottom:1px solid var(--rule)}
+.signoff .contact a:hover{border-color:var(--pine)}
+@media (max-width:560px){ .signoff .contact{text-align:left} }
+
+.tiny{margin-top:28px;font-size:11.5px;color:var(--ink-3);font-weight:300;line-height:1.6;max-width:70ch}
+</style>
+
+<div class="doc">
+
+  <header class="letterhead">
+    <div class="brand">
+      <svg viewBox="0 0 40 40" aria-hidden="true">
+        <rect x="1" y="1" width="38" height="38" rx="10" fill="var(--pine)"/>
+        <ellipse cx="20" cy="24" rx="7.5" ry="9.5" fill="#FFFFFF"/>
+        <path d="M20 15.5c0 6 0 12 0 12" stroke="var(--pine)" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M20 15c3-1.5 5.5-.5 6.5.5-1 2.5-4 3.5-6.5 2" fill="#FFFFFF"/>
+      </svg>
+      <b>Beanz Designs</b>
+    </div>
+    <div class="meta-right">
+      Website proposal · 30 August 2026<br>
+      Prepared for Chef House, Doha
+    </div>
+  </header>
+
+  <section class="opening">
+    <span class="label">Proposal</span>
+    <h1>You have a 4.3-star restaurant and <em>nowhere to send anyone.</em></h1>
+    <p class="lede">
+      Twenty-six people have taken the time to review Chef House on Google. Three and a half thousand
+      follow the kitchen on Instagram. And when someone in Doha searches for you, Google's own listing
+      still shows an empty space where the website should be.
+    </p>
+    <p class="lede">
+      We built one, unprompted, so you can see exactly what that space could hold. There is no charge
+      for what follows and no obligation attached to it — if you like it, we'll finish it properly.
+    </p>
+  </section>
+
+  <section class="sec">
+    <span class="label">What we found</span>
+    <h2>Everything below is public, and we checked it before writing a line of code</h2>
+    <p>No assumptions — this is what anyone looking for Chef House online can see today.</p>
+
+    <div class="findings">
+      <div class="f-row">
+        <span class="what">Google rating</span>
+        <span class="val">4.3 ★</span>
+        <span class="src">Google Maps</span>
+      </div>
+      <div class="f-row">
+        <span class="what">Reviews collected</span>
+        <span class="val">26</span>
+        <span class="src">Google Maps</span>
+      </div>
+      <div class="f-row">
+        <span class="what">Instagram following</span>
+        <span class="val">3,412</span>
+        <span class="src">@chefhouse.qa</span>
+      </div>
+      <div class="f-row">
+        <span class="what">Typical spend per person</span>
+        <span class="val">QAR 1–50</span>
+        <span class="src">Google Maps</span>
+      </div>
+      <div class="f-row">
+        <span class="what">Listed on delivery aggregators</span>
+        <span class="val">Yes</span>
+        <span class="src">Talabat · Zomato</span>
+      </div>
+      <div class="f-row flag">
+        <span class="what">Website</span>
+        <span class="val">None</span>
+        <span class="src">Google shows “add website”</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="label">What that costs you</span>
+    <h2>Three things are happening right now that you can't see</h2>
+
+    <div class="gaps">
+      <article class="gap">
+        <span class="n">1</span>
+        <div>
+          <h3>Your reviews are doing work you never get paid for</h3>
+          <p>A 4.3 average from 26 reviews is genuinely good, and it sits on a page you don't control,
+            surrounded by competitors. On your own site those reviews are the first thing a hungry
+            person reads — and the next thing they see is your phone number.</p>
+        </div>
+      </article>
+      <article class="gap">
+        <span class="n">2</span>
+        <div>
+          <h3>Three thousand followers have nowhere to land</h3>
+          <p>Instagram gives you one link. Right now it goes nowhere, so every person who wants your
+            menu, your hours or your address has to message you and wait for a reply — or give up and
+            eat somewhere else.</p>
+        </div>
+      </article>
+      <article class="gap">
+        <span class="n">3</span>
+        <div>
+          <h3>The delivery apps own the customer, not you</h3>
+          <p>Aggregators are useful and worth keeping. But every order placed through them costs you
+            commission and gives you no way to reach that customer again. A site of your own is the
+            one channel where the whole order is yours.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="label">The mock-up</span>
+    <h2>Already built, already live, already yours to look at</h2>
+
+    <div class="mock">
+      <div class="mock-top">
+        <h3>Chef House — concept one-pager</h3>
+        <p>Designed around the restaurant's own badge: the olive green, the cream, the brass.
+          It is a working page, not a picture of one — open it on your phone and the buttons dial.</p>
+        <a class="mock-link" href="https://claude.ai/code/artifact/5b915a42-cad4-437d-addb-ab4b5e19cb05" target="_blank" rel="noopener">Open the mock-up →</a>
+      </div>
+      <ul class="mock-list">
+        <li><b>Built for a phone first.</b> Call and Directions sit fixed to the bottom of the screen, always one thumb away.</li>
+        <li><b>It knows the time in Doha.</b> The page tells a visitor whether the kitchen is open right now, and how long until last orders.</li>
+        <li><b>Your Google reviews, on your own page.</b> The 4.3, the 26, and what people actually said.</li>
+        <li><b>Arabic woven through, not bolted on.</b> Section titles and dish names in both languages, ready to become a full Arabic version.</li>
+        <li><b>Loads fast on a weak signal.</b> No heavy frameworks, no tracking clutter, no cookie banner to dismiss.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <span class="label">To finish it</span>
+    <h2>Six things only you can give us</h2>
+    <p>The mock-up uses placeholders wherever we couldn't verify something. Replacing them is quick,
+      and it's the difference between a concept and your website.</p>
+
+    <dl class="need">
+      <div><dt>Your opening hours</dt><dd>We have 11:30 pm closing from Google. We've assumed a 7 am open — please correct it.</dd></div>
+      <div><dt>The menu, with prices</dt><dd>A photo of the printed menu is enough. The page is built to hold it.</dd></div>
+      <div><dt>10–15 food photographs</dt><dd>The ones you already shoot for Instagram are perfect.</dd></div>
+      <div><dt>Your delivery links</dt><dd>Talabat, Snoonu, Rafeeq — whichever you actually use.</dd></div>
+      <div><dt>The Arabic name, spelled your way</dt><dd>We've used شيف هاوس. Tell us if you write it differently.</dd></div>
+      <div><dt>A WhatsApp number</dt><dd>If you'd like orders and table enquiries to come through there too.</dd></div>
+    </dl>
+  </section>
+
+  <section class="sec">
+    <span class="label">Scope</span>
+    <h2>Three packages. All one-off &mdash; nothing you have to keep paying to stay online.</h2>
+    <p>These are our standard packages, priced in riyal and written out in restaurant terms.
+      Every one of them includes the words on the page written for you, not left as your homework.</p>
+
+    <div class="tiers">
+
+      <div class="tier">
+        <span class="label">Launch</span>
+        <h3>The one-pager</h3>
+        <div class="price">QAR 2,450<small>One-off &middot; live in 14 days</small></div>
+        <ul>
+          <li>The page you&rsquo;re looking at, finished with your food, your hours and your words</li>
+          <li>All copy written for you</li>
+          <li>Click-to-call on 7080 8277, plus WhatsApp for orders</li>
+          <li>Your live Google rating and reviews, updating themselves</li>
+          <li>Google Maps pin and your Instagram linked</li>
+          <li>Your menu laid out on the page</li>
+          <li>Live open/closed status on Doha time</li>
+          <li>2 rounds of changes, and a call to start</li>
+        </ul>
+      </div>
+
+      <div class="tier pick">
+        <span class="label">Grow &middot; our recommendation</span>
+        <h3>The full menu site</h3>
+        <div class="price">QAR 3,950<small>One-off &middot; first draft in 10 days</small></div>
+        <ul>
+          <li><b>Everything in Launch</b></li>
+          <li>Separate pages for the full menu, your story and catering</li>
+          <li>5 pages written for you, aimed at how Doha searches &mdash; &ldquo;Kerala food in Doha&rdquo;, &ldquo;Iftar catering in Bin Mahmoud&rdquo;</li>
+          <li>Enquiries emailed straight to you</li>
+          <li>Search set-up so you turn up for &ldquo;restaurant near Ibn Mahmoud St&rdquo;</li>
+          <li>A booking calendar for tables and catering</li>
+          <li>Analytics, so you can see what people actually look at</li>
+          <li>3 rounds of changes</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <span class="label">Signature</span>
+        <h3>Everything, done for you</h3>
+        <div class="price">QAR 9,900<small>One-off &middot; first draft in 5 days</small></div>
+        <ul>
+          <li><b>Everything in Grow</b></li>
+          <li>12 pages targeting how people search for food in Doha</li>
+          <li>Your round badge redrawn as proper artwork &mdash; for signage, menus and delivery boxes, not just the web</li>
+          <li>Your Google listing claimed and completed, including that empty website field</li>
+          <li>3 months of Grow Care included, free <span class="worth">(worth QAR 2,235)</span></li>
+          <li>Unlimited rounds of changes</li>
+          <li>Priority on everything</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <h3 class="sub">Afterwards, if you want us to keep it running</h3>
+    <p class="sub-p">Entirely optional, no contract, cancel any time. Most restaurants take the middle one,
+      because menus and prices change more often than owners expect.</p>
+
+    <div class="findings care">
+      <div class="f-row">
+        <span class="what"><b>Care</b> &mdash; hosting, backups, security, and 30 minutes of small changes a month</span>
+        <span class="val">QAR 395<small>/month</small></span>
+      </div>
+      <div class="f-row flag">
+        <span class="what"><b>Grow Care</b> &mdash; everything in Care, unlimited small changes, 2 written pages a month, monthly figures, priority support</span>
+        <span class="val">QAR 745<small>/month</small></span>
+      </div>
+      <div class="f-row">
+        <span class="what"><b>Partner</b> &mdash; everything in Grow Care, 4 written pages a month, ongoing search work, and your Google listing managed for you</span>
+        <span class="val">QAR 1,240<small>/month</small></span>
+      </div>
+    </div>
+
+    <h3 class="sub">One-off extras, whenever you need them</h3>
+    <div class="extras">
+      <div class="ex"><span>A full Arabic version of the site, right-to-left</span><span>Quoted on request</span></div>
+      <div class="ex"><span>Extra page written for you</span><span>from QAR 375</span></div>
+      <div class="ex"><span>Extra website page</span><span>from QAR 750</span></div>
+      <div class="ex"><span>Logo redrawn</span><span>from QAR 1,240</span></div>
+      <div class="ex"><span>Extra round of design changes</span><span>from QAR 475</span></div>
+      <div class="ex"><span>Google Business Profile set up</span><span>from QAR 595</span></div>
+      <div class="ex"><span>Booking system set up</span><span>from QAR 595</span></div>
+    </div>
+
+    <p class="fx-note">
+      Prices shown in Qatari riyal, converted from our published pounds-sterling packages at
+      1 GBP = 4.96 QAR (24 August 2026) and rounded. We will confirm the exact figure in writing
+      before any work starts, and it will not move afterwards.
+    </p>
+  </section>
+
+  <section class="sec">
+    <span class="label">How it goes</span>
+    <h2>From this page to a live website</h2>
+
+    <div class="steps">
+      <div class="step">
+        <span class="when">Week one</span>
+        <h3>A conversation and your content</h3>
+        <p>Twenty minutes on the phone or in the restaurant. You hand over the menu, the photos and
+          the corrections — we do everything after that.</p>
+      </div>
+      <div class="step">
+        <span class="when">Week two</span>
+        <h3>Your real site, on a private link</h3>
+        <p>The same design, filled with your food and your words. You review it and tell us what to
+          change &mdash; the rounds of changes in your package are included, never billed as extras.</p>
+      </div>
+      <div class="step">
+        <span class="when">Week three</span>
+        <h3>Live, and connected to Google</h3>
+        <p>Domain pointed, site published, and the address added to your Google listing so that empty
+          space finally has something in it.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="signoff">
+    <div class="who">Zayn Ali Hooda
+      <span>Beanz Designs</span>
+    </div>
+    <div class="contact">
+      <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a><br>
+      <a href="https://beanzdesigns.com" target="_blank" rel="noopener">beanzdesigns.com</a>
+    </div>
+  </div>
+
+  <p class="tiny">
+    Figures cited from public listings on Google Maps and Instagram, checked 30 August 2026. The concept
+    mock-up is unaffiliated with Chef House and was produced without commission; the Chef House name and
+    logo remain the property of the restaurant, and the concept will be withdrawn on request.
+  </p>
+
+</div>
