@@ -152,8 +152,8 @@ def build():
     home = inject_fonts((HERE / "home.template.html").read_text())
     home = home.replace(PORT_LINK_PLACEHOLDER, "portfolio.html")
     (ROOT / "index.html").write_text(encode_entities(document(
-        "BEANZ — Websites that get small businesses more customers",
-        "BEANZ designs conversion-led websites for small businesses — get found, get trusted, get booked. Packages from £495.",
+        "Small Business Web Design & Copywriting UK | BEANZ",
+        "Web design and copywriting for small businesses across the UK. We write the words, design the site and build it — so you get found, get trusted and get booked. From £495.",
         home, slug="", extra_head=JSONLD_HOME)))
 
     # Portfolio -> portfolio.html
@@ -161,35 +161,35 @@ def build():
     port = port.replace("__FWH_JPG__", b64(IMG / "fwh_hero.jpg"))
     port = port.replace("__HOME__", "index.html")
     (ROOT / "portfolio.html").write_text(encode_entities(document(
-        "BEANZ — Portfolio",
-        "Recent websites designed and built by BEANZ, including the FWH Fitness case study.",
+        "Small Business Website Portfolio & Case Studies | BEANZ",
+        "See small business websites designed and built by BEANZ, including the FWH Fitness case study — conversion-led design with done-for-you copywriting.",
         port, slug="portfolio.html")))
 
     # Care plans -> care.html
     care = inject_fonts((HERE / "care.template.html").read_text())
     (ROOT / "care.html").write_text(encode_entities(document(
-        "BEANZ — Care plans",
-        "Monthly care plans for your BEANZ website — hosting, security, updates, content and support. No lock-in.",
+        "Website Care Plans & Maintenance | BEANZ",
+        "Monthly website care plans for small businesses — hosting, security, backups, updates, content and support. From £79/month, no contracts, cancel anytime.",
         care, slug="care.html")))
 
     # FAQ -> faq.html
     faq = inject_fonts((HERE / "faq.template.html").read_text())
     (ROOT / "faq.html").write_text(encode_entities(document(
-        "BEANZ — Frequently asked questions",
-        "Common questions about working with BEANZ: our packages, done-for-you StoryBrand copy, timelines, ownership, care plans and more.",
+        "Web Design FAQs — Pricing, Timelines & Ownership | BEANZ",
+        "Answers to common web design questions: what our packages include, pricing, how long a website takes, who writes the copy, who owns the site and how care plans work.",
         faq, slug="faq.html")))
 
     # Privacy Policy -> privacy.html
     privacy = inject_fonts((HERE / "privacy.template.html").read_text())
     (ROOT / "privacy.html").write_text(encode_entities(document(
-        "BEANZ — Privacy Policy",
+        "Privacy Policy | BEANZ",
         "How BEANZ Designs collects, uses and protects your personal information, and the rights you have under UK GDPR.",
         privacy, slug="privacy.html")))
 
     # Terms of Service -> terms.html
     terms = inject_fonts((HERE / "terms.template.html").read_text())
     (ROOT / "terms.html").write_text(encode_entities(document(
-        "BEANZ — Terms of Service",
+        "Terms of Service | BEANZ",
         "The terms that apply when you buy a website or care plan from BEANZ Designs.",
         terms, slug="terms.html")))
 
