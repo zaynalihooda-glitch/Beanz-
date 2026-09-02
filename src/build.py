@@ -193,6 +193,15 @@ def build():
         "The terms that apply when you buy a website or care plan from BEANZ Designs.",
         terms, slug="terms.html")))
 
+    # Thank-you page -> thanks.html. Kept out of the sitemap and noindexed: it's
+    # a post-submission confirmation, not a page we want people landing on cold.
+    thanks = inject_fonts((HERE / "thanks.template.html").read_text())
+    (ROOT / "thanks.html").write_text(encode_entities(document(
+        "Thanks — we'll be in touch | BEANZ",
+        "Thanks for getting in touch with BEANZ. We'll reply within one working day.",
+        thanks, slug="thanks.html",
+        extra_head='<meta name="robots" content="noindex,follow">')))
+
     # Social share image (copied to root so /og.jpg resolves)
     (ROOT / "og.jpg").write_bytes((IMG / "og.jpg").read_bytes())
 

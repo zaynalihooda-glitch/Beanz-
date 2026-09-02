@@ -1,0 +1,84 @@
+<style>
+  @font-face{font-family:'Inter';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__INTER400__) format('woff2');font-display:block}
+  @font-face{font-family:'Inter';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__INTER500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:400;src:url(data:font/woff2;base64,__NEWS400__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:normal;font-weight:500;src:url(data:font/woff2;base64,__NEWS500__) format('woff2');font-display:block}
+  @font-face{font-family:'Newsreader';font-style:italic;font-weight:400;src:url(data:font/woff2;base64,__NEWS400I__) format('woff2');font-display:block}
+
+  :root{
+    --paper:#F4F4F1;--surface:#FFFFFF;
+    --ink:#1C231F;--ink-2:#33403A;--mute:#5E6B64;--mute-2:#8A938C;
+    --pine:#2C5A48;--pine-2:#224A3A;--pine-tint:#E6EEEA;--bronze:#B07C3F;
+    --line:rgba(28,35,31,.13);--line-2:rgba(28,35,31,.22);
+    --sh-sm:0 1px 2px rgba(28,35,31,.06);
+    --maxw:1200px;--serif:'Newsreader',Georgia,serif;--sans:'Inter',system-ui,-apple-system,sans-serif;
+  }
+  :root[data-theme]{color-scheme:light}
+  *{box-sizing:border-box;margin:0;padding:0}
+  strong,b{font-weight:500}
+  #tk{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+  #tk ::selection{background:var(--pine);color:#fff}
+  #tk a{color:inherit;text-decoration:none}
+  #tk h1,#tk h2{font-family:var(--serif);font-weight:500;line-height:1.1;letter-spacing:-.02em;color:var(--ink)}
+  #tk .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;width:100%}
+
+  #tk .nav{border-bottom:1px solid var(--line)}
+  #tk .nav-in{display:flex;align-items:center;justify-content:space-between;height:76px}
+  #tk .brand{display:flex;align-items:center;gap:9px;font-family:var(--serif);font-weight:500;font-size:23px;letter-spacing:.02em}
+  #tk .brand .mk{width:30px;height:30px}
+  #tk .brand .mk svg{width:100%;height:100%;display:block}
+
+  #tk main{flex:1;display:flex;align-items:center;justify-content:center;padding:70px 0 90px}
+  #tk .card{max-width:600px;text-align:center}
+  #tk .tick{width:66px;height:66px;border-radius:50%;background:var(--pine-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 26px}
+  #tk .tick svg{width:30px;height:30px}
+  #tk h1{font-size:clamp(32px,4.4vw,46px);margin-bottom:16px}
+  #tk h1 em{font-style:italic;color:var(--pine)}
+  #tk .lead{font-size:18px;color:var(--ink-2);margin-bottom:12px}
+  #tk .sub{color:var(--mute);font-size:16px;margin-bottom:32px}
+  #tk .btns{display:flex;gap:13px;justify-content:center;flex-wrap:wrap;margin-bottom:34px}
+  #tk .btn{display:inline-flex;align-items:center;gap:9px;font-family:var(--sans);font-weight:500;font-size:15px;padding:14px 24px;border-radius:9px;border:1px solid transparent;transition:.2s}
+  #tk .btn-primary{background:var(--pine);color:#fff;border-color:var(--pine)}
+  #tk .btn-primary:hover{background:var(--pine-2)}
+  #tk .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
+  #tk .btn-ghost:hover{border-color:var(--pine);color:var(--pine)}
+  #tk .reach{border-top:1px solid var(--line);padding-top:24px;font-size:15px;color:var(--mute)}
+  #tk .reach a{color:var(--pine);text-decoration:underline;padding-block:13px;margin-block:-13px;display:inline-block}
+
+  #tk footer{border-top:1px solid var(--line);padding:34px 0}
+  #tk .foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13.5px;color:var(--mute-2)}
+  #tk .foot-in a{color:var(--mute)}
+  @media(max-width:880px){#tk .wrap{padding:0 22px}}
+</style>
+
+<div id="tk">
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="index.html" class="brand"><span class="mk"><svg aria-hidden="true" viewBox="0 0 64 64"><rect x="9" y="9" width="50" height="50" rx="15" fill="#B07C3F"/><rect x="4" y="4" width="50" height="50" rx="15" fill="#2C5A48"/><g fill="#F4F4F1"><path d="M30 22 C 30 12 40 10 41 13 C 41 20 34 24 30 22 Z"/><ellipse cx="27.5" cy="34.5" rx="10.5" ry="14" transform="rotate(-16 27.5 34.5)"/></g></svg></span>BEANZ</a>
+    <a href="index.html" class="btn btn-ghost" style="padding:10px 18px">Back to home</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="card">
+      <div class="tick"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="#2C5A48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
+      <h1>Thanks &mdash; <em>message received.</em></h1>
+      <p class="lead">We've got your details and we'll get back to you within one working day.</p>
+      <p class="sub">Want to skip the wait? Book a free 30-minute call and we'll talk through what your website needs.</p>
+      <div class="btns">
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-primary">Book a free call &rarr;</a>
+        <a href="portfolio.html" class="btn btn-ghost">See our work</a>
+      </div>
+      <p class="reach">Prefer to talk now? Email <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a> or call <a href="tel:+447415325212">+44 7415 325212</a>.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span>&copy; 2026 BEANZ Designs</span>
+    <span><a href="index.html">Home</a> &nbsp;&middot;&nbsp; <a href="index.html#pricing">Packages</a> &nbsp;&middot;&nbsp; <a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a></span>
+  </div>
+</footer>
+</div>
