@@ -26,6 +26,13 @@ FONT_TOKENS = {
 def b64(path):
     return base64.b64encode(path.read_bytes()).decode()
 
+def shared_style():
+    """The design system lives in the homepage template's <style> block.
+    Other pages pull it in via the __SHAREDSTYLE__ token so there's one source
+    of truth for the palette, type and components."""
+    home = (HERE / "home.template.html").read_text()
+    return home[:home.index("</style>") + len("</style>")]
+
 def inject_fonts(html):
     for token, fname in FONT_TOKENS.items():
         html = html.replace(token, b64(FONTS / fname))
@@ -102,7 +109,21 @@ JSONLD_HOME = (
     '</script>'
 )
 
-PAGES_FOR_SITEMAP = ["", "care.html", "faq.html", "portfolio.html", "privacy.html", "terms.html"]
+JSONLD_ACC = (
+    '<script type="application/ld+json">'
+    '{"@context":"https://schema.org","@type":"Service",'
+    '"name":"Website design for accountancy practices",'
+    '"serviceType":"Web design and copywriting for accountancy practices",'
+    f'"url":"{BASE_URL}/accountants.html",'
+    '"provider":{"@type":"ProfessionalService","name":"BEANZ Designs",'
+    f'"url":"{BASE_URL}",'
+    '"email":"hello@beanzdesigns.com","telephone":"+44 7415 325212"},'
+    '"areaServed":{"@type":"Country","name":"United Kingdom"},'
+    '"audience":{"@type":"BusinessAudience","name":"Accountancy practices"}}'
+    '</script>'
+)
+
+PAGES_FOR_SITEMAP = ["", "accountants.html", "care.html", "faq.html", "portfolio.html", "privacy.html", "terms.html"]
 
 def write_sitemap():
     urls = "".join(
@@ -165,6 +186,15 @@ def build():
         "See small business websites designed and built by BEANZ, including the FWH Fitness case study — conversion-led design with done-for-you copywriting.",
         port, slug="portfolio.html")))
 
+    # Accountancy landing page -> accountants.html
+    acc = (HERE / "accountants.template.html").read_text()
+    acc = acc.replace("__SHAREDSTYLE__", shared_style())
+    acc = inject_fonts(acc)
+    (ROOT / "accountants.html").write_text(encode_entities(document(
+        "Websites for UK Accountancy Practices | BEANZ",
+        "Websites for UK accountancy practices, with the copy written for you. Score your current site against five checks, then get a free homepage mockup \u2014 see it before you commit to anything.",
+        acc, slug="accountants.html", extra_head=JSONLD_ACC)))
+
     # Care plans -> care.html
     care = inject_fonts((HERE / "care.template.html").read_text())
     (ROOT / "care.html").write_text(encode_entities(document(
@@ -220,7 +250,7 @@ def build():
     write_sitemap()
     write_robots()
 
-    outputs = ("index.html", "portfolio.html", "care.html", "faq.html",
+    outputs = ("index.html", "accountants.html", "portfolio.html", "care.html", "faq.html",
                "privacy.html", "terms.html", "404.html")
     for f in outputs:
         kb = round((ROOT / f).stat().st_size / 1024)
