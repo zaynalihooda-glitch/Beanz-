@@ -289,6 +289,8 @@ __SHAREDSTYLE__
     </div>
     <form id="leadForm" class="rv" name="accountants" method="POST" data-netlify="true" action="/thanks.html" novalidate>
       <input type="hidden" name="form-name" value="accountants">
+      <!-- Filled by the scorecard: the checks they actually ticked, not just the count. -->
+      <input type="hidden" name="failing" id="failing">
       <div class="two">
         <div class="fld"><label for="name">Your name</label><input id="name" name="name" required autocomplete="name" aria-describedby="name-err" placeholder="Jane Smith"><span class="err" id="name-err">Please tell us your name.</span></div>
         <div class="fld"><label for="business">Practice name</label><input id="business" name="business" autocomplete="organization" placeholder="Smith &amp; Co. Accountants"></div>
@@ -366,7 +368,7 @@ __SHAREDSTYLE__
   /* live score */
   var ins=[].slice.call(document.querySelectorAll('.ac-in'));
   var num=document.getElementById('scoreNum'), msg=document.getElementById('scoreMsg');
-  var sel=document.getElementById('score');
+  var sel=document.getElementById('score'), fail=document.getElementById('failing');
   var MSG={
     0:"Tick the ones that apply to your site. Most practices we look at score three or more.",
     1:"One is one too many. Any single item here is enough to lose a referral who was already sold on you.",
@@ -383,6 +385,20 @@ __SHAREDSTYLE__
        untouched form still reads "Haven't checked yet". Unticking back to zero
        must land on the 0 option, not leave the last value stranded. */
     if(sel&&touched){sel.value=n>0?n+" out of 5":sel.options[1].value;}
+    /* Carry the specific checks through, so the enquiry says which five
+       failed rather than only how many. Labels are read from each hero row's
+       own span.t, so they can't drift out of sync with the copy on screen.
+       This depends on the hero scorecard markup — if that card is ever
+       restructured, re-test that this field still fills. */
+    if(fail){
+      fail.value=ins.reduce(function(acc,inp,idx){
+        if(inp.checked){
+          var t=inp.parentNode.querySelector('span.t');
+          acc.push((idx+1)+'. '+(t?t.textContent.trim().replace(/\.$/,''):''));
+        }
+        return acc;
+      },[]).join(' | ');
+    }
   };
   ins.forEach(function(i){i.addEventListener('change',function(){touched=true;sync();});});
   sync();
