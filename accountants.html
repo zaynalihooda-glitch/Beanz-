@@ -284,15 +284,40 @@
 </style>
 <style>
   /* ---- /accountants page-specific ---- */
+  /* Hero scorecard &#8212; the diagnostic itself, in place of the old wireframe.
+     Uses the same .ac-in checkbox class as the detail section below so the
+     existing scoring JS drives it unchanged. */
+  #lc .hs{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);overflow:hidden}
+  #lc .hs-top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 24px;border-bottom:1px solid var(--line);background:var(--paper-2)}
+  #lc .hs-top .lbl{font-size:12px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--pine)}
+  #lc .hs-top .n{font-family:var(--serif);font-size:34px;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+  #lc .hs-top .n small{font-size:17px;color:var(--mute-2)}
+  #lc .hs-list{display:flex;flex-direction:column}
+  #lc .hs-row{display:flex;gap:13px;align-items:flex-start;padding:14px 24px;cursor:pointer;border-bottom:1px solid var(--line);transition:background .15s ease}
+  #lc .hs-row:hover{background:var(--pine-tint)}
+  #lc .hs-row input{position:absolute;opacity:0;pointer-events:none}
+  #lc .hs-row .ac-box{flex:0 0 auto;width:21px;height:21px;margin-top:1px}
+  #lc .hs-row span.t{font-size:15.5px;line-height:1.45;color:var(--ink-2)}
+  #lc .hs-row input:checked ~ span.t{color:var(--ink)}
+  #lc .hs-foot{padding:17px 24px;background:var(--pine);color:#fff}
+  #lc .hs-foot p{font-size:14.5px;line-height:1.55;opacity:.94}
+  @media(max-width:900px){
+    #lc .hs-row{padding:13px 18px}
+    #lc .hs-top,#lc .hs-foot{padding-left:18px;padding-right:18px}
+  }
+
   #lc .ac-checks{display:grid;gap:14px;margin-top:34px}
   #lc .ac-check{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;cursor:pointer;transition:.18s ease}
   #lc .ac-check:hover{border-color:var(--line-2);transform:translateY(-1px);box-shadow:var(--sh-sm)}
+  /* The detail cards are read-only now &#8212; the ticking happens in the hero card. */
+  #lc .ac-static{cursor:default}
+  #lc .ac-static:hover{border-color:var(--line);transform:none;box-shadow:none}
   #lc .ac-check input{position:absolute;opacity:0;pointer-events:none}
   #lc .ac-box{flex:0 0 auto;width:24px;height:24px;border:1.5px solid var(--line-2);border-radius:6px;margin-top:2px;display:grid;place-items:center;transition:.18s ease}
   #lc .ac-box::after{content:"";width:11px;height:6px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) scale(.4);opacity:0;transition:.18s ease}
-  #lc .ac-check input:checked ~ .ac-box{background:var(--pine);border-color:var(--pine)}
-  #lc .ac-check input:checked ~ .ac-box::after{opacity:1;transform:rotate(-45deg) scale(1)}
-  #lc .ac-check input:focus-visible ~ .ac-box{outline:2px solid var(--pine);outline-offset:3px}
+  #lc .ac-check input:checked ~ .ac-box,#lc .hs-row input:checked ~ .ac-box{background:var(--pine);border-color:var(--pine)}
+  #lc .ac-check input:checked ~ .ac-box::after,#lc .hs-row input:checked ~ .ac-box::after{opacity:1;transform:rotate(-45deg) scale(1)}
+  #lc .ac-check input:focus-visible ~ .ac-box,#lc .hs-row input:focus-visible ~ .ac-box{outline:2px solid var(--pine);outline-offset:3px}
   #lc .ac-ct h3{font-size:20px;margin-bottom:7px}
   #lc .ac-ct p{color:var(--mute);font-size:15.5px;line-height:1.62}
   #lc .ac-score{margin-top:30px;background:var(--pine);color:#fff;border-radius:var(--r);padding:30px 32px;display:flex;flex-wrap:wrap;gap:22px;align-items:center;justify-content:space-between}
@@ -354,7 +379,7 @@
       <p class="lead">Nobody rings on a recommendation any more. They search your name first, and your website decides whether they dial. I work inside an accountancy practice and I build websites for practices &mdash; so I know exactly what that page needs to do.</p>
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary">Get a free homepage mockup &rarr;</a>
-        <a href="#problem" class="link-bronze">Score your site out of 5</a>
+        <a href="#problem" class="link-bronze">Why each one costs you work</a>
       </div>
       <div class="hero-trust">
         <span>No cost, no obligation</span>
@@ -362,19 +387,41 @@
         <span class="dot"></span><span>Don't like it, don't pay</span>
       </div>
     </div>
-    <div class="mock rv">
-      <div class="browser">
-        <div class="bchrome"><span class="d"></span><span class="d"></span><span class="d"></span><div class="url"></div></div>
-        <div class="bbody">
-          <div class="bnav"><span class="blogo"></span><span class="blink"></span><span class="blink"></span><span class="blink"></span><span class="bbtn"></span></div>
-          <div class="bhero">
-            <div class="bh-txt"><span class="bh1"></span><span class="bh1 s"></span><span class="bp"></span><span class="bp s"></span><span class="bcta"></span></div>
-            <div class="bh-img"></div>
-          </div>
-          <div class="btiles"><span></span><span></span><span></span></div>
-        </div>
+    <!-- Deliberately no .rv: this is above the fold and it's the page's main
+         interactive element, so it must never depend on JS to become visible. -->
+    <div class="hs">
+      <div class="hs-top">
+        <span class="lbl">Score your site</span>
+        <span class="n"><span id="scoreNum">0</span><small>/5</small></span>
       </div>
-      <span class="tag">Your practice, redesigned</span>
+      <div class="hs-list">
+        <label class="hs-row">
+          <input type="checkbox" class="ac-in">
+          <span class="ac-box" aria-hidden="true"></span>
+          <span class="t">It doesn't say who it's for.</span>
+        </label>
+        <label class="hs-row">
+          <input type="checkbox" class="ac-in">
+          <span class="ac-box" aria-hidden="true"></span>
+          <span class="t">It's a brochure, not a shopfront.</span>
+        </label>
+        <label class="hs-row">
+          <input type="checkbox" class="ac-in">
+          <span class="ac-box" aria-hidden="true"></span>
+          <span class="t">There's no next step for someone who isn't ready today.</span>
+        </label>
+        <label class="hs-row">
+          <input type="checkbox" class="ac-in">
+          <span class="ac-box" aria-hidden="true"></span>
+          <span class="t">It lists services instead of problems.</span>
+        </label>
+        <label class="hs-row">
+          <input type="checkbox" class="ac-in">
+          <span class="ac-box" aria-hidden="true"></span>
+          <span class="t">It hasn't been touched in four years.</span>
+        </label>
+      </div>
+      <div class="hs-foot"><p id="scoreMsg">Tick the ones that sound like your site.</p></div>
     </div>
   </div>
 </section>
@@ -385,56 +432,46 @@
     <div class="rv" style="max-width:720px">
       <div class="eyebrow">The five checks</div>
       <h2>Five reasons a practice website never brings in a single client.</h2>
-      <p class="lead" style="margin-top:16px">None of them are the design. Tick the ones that sound like your site.</p>
+      <p class="lead" style="margin-top:16px">None of them are the design. Here's what each one actually costs you.</p>
     </div>
 
     <div class="ac-checks rv">
-      <label class="ac-check">
-        <input type="checkbox" class="ac-in">
-        <span class="ac-box" aria-hidden="true"></span>
+      <div class="ac-check ac-static">
         <span class="ac-ct">
           <h3>1. It doesn't say who it's for.</h3>
           <p>&ldquo;Businesses of all shapes and sizes&rdquo; tells a dental practice owner nothing. If a visitor can't see themselves on the page, the only thing left to compare you on is fee.</p>
         </span>
-      </label>
-      <label class="ac-check">
-        <input type="checkbox" class="ac-in">
-        <span class="ac-box" aria-hidden="true"></span>
+      </div>
+      <div class="ac-check ac-static">
         <span class="ac-ct">
           <h3>2. It's a brochure, not a shopfront.</h3>
           <p>Home. About. Services. Contact. That's a leaflet with a domain name. Nothing on it is trying to start a conversation with the person reading it.</p>
         </span>
-      </label>
-      <label class="ac-check">
-        <input type="checkbox" class="ac-in">
-        <span class="ac-box" aria-hidden="true"></span>
+      </div>
+      <div class="ac-check ac-static">
         <span class="ac-ct">
           <h3>3. There's no next step for someone who isn't ready today.</h3>
           <p>Most people reading it aren't switching accountants this week. They're switching in March, or after a bad VAT quarter. You offer them &ldquo;call us&rdquo; or nothing &mdash; so you get nothing, and you never learn they were there.</p>
         </span>
-      </label>
-      <label class="ac-check">
-        <input type="checkbox" class="ac-in">
-        <span class="ac-box" aria-hidden="true"></span>
+      </div>
+      <div class="ac-check ac-static">
         <span class="ac-ct">
           <h3>4. It lists services instead of problems.</h3>
           <p>Bookkeeping. VAT. Payroll. Year-end. That's a menu, and menus get price-compared. Name the problem you solve and the outcome you deliver, and price stops being the opening question.</p>
         </span>
-      </label>
-      <label class="ac-check">
-        <input type="checkbox" class="ac-in">
-        <span class="ac-box" aria-hidden="true"></span>
+      </div>
+      <div class="ac-check ac-static">
         <span class="ac-ct">
           <h3>5. It hasn't been touched in four years.</h3>
           <p>Broken on a phone, which is where the check actually happens. Team members who left in 2022. A copyright date that gives it away in the footer. None of that is a design opinion &mdash; it's a signal about how the practice is run.</p>
         </span>
-      </label>
+      </div>
     </div>
 
     <div class="ac-score rv" id="scoreBox">
       <div>
-        <div class="n"><span id="scoreNum">0</span><small>/5</small></div>
-        <p id="scoreMsg">Tick the ones that apply to your site. Most practices we look at score three or more.</p>
+        <div class="n" style="font-size:28px">Recognise a few of these?</div>
+        <p>Fixing one of them usually beats a full redesign. Tell me your site and I'll show you which one is costing you the most &mdash; on a mockup of your own homepage, free.</p>
       </div>
       <a href="#contact" class="btn btn-white">Show me what mine could look like &rarr;</a>
     </div>
