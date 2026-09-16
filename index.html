@@ -69,6 +69,7 @@
   #lc .hero h1 em{font-style:italic;color:var(--pine)}
   #lc .hero .lead{font-size:19px;color:var(--ink-2);max-width:48ch;margin-bottom:32px}
   #lc .hero-cta{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+  #lc .cta-note{font-size:13px;color:var(--mute-2);margin:14px 0 0}
   #lc .hero-trust{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-top:30px;font-size:13.5px;color:var(--mute)}
   #lc .hero-trust .stars{color:var(--bronze);letter-spacing:1px}
   #lc .hero-trust .dot{width:3px;height:3px;border-radius:50%;background:var(--mute-2)}
@@ -196,6 +197,7 @@
   #lc .band h2{color:#fff;font-size:clamp(28px,3.6vw,42px);position:relative}
   #lc .band p{color:#CFE0D8;font-size:17px;margin:16px auto 30px;max-width:44ch;position:relative}
   #lc .band .btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;position:relative}
+  #lc .band-note{color:rgba(207,224,216,.78);font-size:13px;margin:24px auto 0;max-width:52ch;position:relative}
 
   /* faq */
   #lc .faq{max-width:820px;margin:0 auto;border-top:1px solid var(--line-2)}
@@ -211,7 +213,13 @@
   #lc .contact{background:var(--paper-2);border-top:1px solid var(--line)}
   #lc .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
   #lc .contact h2{font-size:clamp(30px,4vw,48px)}
-  #lc .contact .clead{color:var(--mute);font-size:17px;margin:18px 0 26px;max-width:40ch}
+  #lc .contact .clead{color:var(--mute);font-size:17px;margin:18px 0 22px;max-width:40ch}
+  #lc .clist{list-style:none;padding:0;margin:0 0 24px;display:flex;flex-direction:column;gap:10px;max-width:40ch}
+  #lc .clist li{position:relative;padding-left:26px;font-size:15px;color:var(--ink)}
+  #lc .clist li::before{content:"";position:absolute;left:2px;top:6px;width:11px;height:6px;border-left:2px solid var(--pine);border-bottom:2px solid var(--pine);transform:rotate(-45deg)}
+  #lc .cor{font-size:15px;color:var(--mute);margin:0 0 28px}
+  #lc .cor a{color:var(--pine);font-weight:500;border-bottom:1px solid rgba(44,90,72,.35);padding-bottom:1px}
+  #lc .cor a:hover{border-color:var(--pine)}
   #lc .cmeta{border-top:1px solid var(--line);margin-top:6px}
   #lc .cmeta a{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:15px}
   #lc .cmeta a span:first-child{color:var(--mute)}
@@ -247,6 +255,7 @@
       transform:translateY(110%);transition:transform .28s cubic-bezier(.2,.7,.2,1)}
     #lc .mcta.up{transform:none}
     #lc .mcta .btn{width:100%;justify-content:center;padding:15px 20px;font-size:16px}
+    #lc .mcta .msec{display:block;text-align:center;margin-top:8px;font-size:13px;color:var(--mute);text-decoration:underline;text-underline-offset:2px}
   }
   @media(prefers-reduced-motion:reduce){#lc .mcta{transition:none}}
 
@@ -298,7 +307,7 @@
       <a href="faq.html">FAQ</a>
     </nav>
     <div class="nav-right">
-      <a href="#contact" class="btn btn-primary" style="padding:11px 20px">I'm interested</a>
+      <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-primary" style="padding:11px 20px">Book a free call</a>
       <button class="menu-btn" id="menuBtn" aria-label="Menu">Menu</button>
     </div>
   </div>
@@ -312,9 +321,10 @@
       <h1>Get more customers from a website that <em>actually sells.</em></h1>
       <p class="lead">You're great at what you do &#8212; but if your website doesn't show it, the right customers never call. We build conversion-led websites that get you found, get you trusted, and get you booked.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn btn-primary">I'm interested &rarr;</a>
-        <a href="#audit" class="link-bronze">Get a free website review</a>
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-primary">Book a free call &rarr;</a>
+        <a href="#contact" class="link-bronze">Not ready to talk? Get a free website review</a>
       </div>
+      <p class="cta-note">30 minutes, straight into our calendar. No pressure, no sales script.</p>
       <div class="hero-trust">
         <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <span>Loved by local business owners</span>
@@ -441,7 +451,7 @@
           <li>Google Business Profile set-up</li>
           <li>Priority everything</li>
         </ul>
-        <a href="#contact" class="btn btn-primary">I'm interested</a>
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-primary">Book a free call</a>
       </div>
 
       <div class="tier rv">
@@ -461,7 +471,7 @@
           <li><strong>3</strong> design iterations</li>
           <li><strong>10-day</strong> first draft</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">I'm interested</a>
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-ghost">Book a free call</a>
       </div>
 
       <div class="tier rv">
@@ -479,7 +489,7 @@
           <li>Google Maps &amp; social links</li>
           <li>Initial onboarding call</li>
         </ul>
-        <a href="#contact" class="btn btn-ghost">I'm interested</a>
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-ghost">Book a free call</a>
       </div>
 
     </div>
@@ -519,15 +529,16 @@
 
 
 <!-- TRANSITIONAL + DIRECT CTA BAND -->
-<section id="audit">
+<section id="ready">
   <div class="wrap">
     <div class="band rv">
       <h2>Ready to turn your website into your best salesperson?</h2>
-      <p>Tell us you're interested, or grab a free review of your current site and we'll show you where you're losing customers.</p>
+      <p>Book a free 30-minute call and we'll map out exactly what your site needs. Not ready to talk yet? Take the free website review instead.</p>
       <div class="btns">
-        <a href="#contact" class="btn btn-white">I'm interested &rarr;</a>
+        <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-white">Book a free call &rarr;</a>
         <a href="#contact" class="btn btn-ghost" style="color:#fff;border-color:rgba(255,255,255,.5)">Get a free website review</a>
       </div>
+      <p class="band-note">The call books straight into our calendar. The review comes back to you by email &mdash; no call needed.</p>
     </div>
   </div>
 </section>
@@ -553,9 +564,16 @@
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div class="rv">
-      <div class="eyebrow">Get in touch</div>
-      <h2>Let's get you more customers.</h2>
-      <p class="clead">Tell us a little about your business. We'll come back with honest advice on how a new website could bring you more work &#8212; whether you hire us or not.</p>
+      <div class="eyebrow">Free website review</div>
+      <h2>Not ready to talk? Start here.</h2>
+      <p class="clead">Send us your details and we'll review your current website in your own time. No call, no obligation.</p>
+      <ul class="clist">
+        <li>An honest read on how your site is doing</li>
+        <li>The specific things quietly costing you enquiries</li>
+        <li>What we'd fix first &mdash; whether you hire us or not</li>
+        <li>No website yet? We'll sketch what yours could look like</li>
+      </ul>
+      <p class="cor">Would you rather just talk it through? <a href="https://calendly.com/beanzdesigns/30min">Book a free 30-minute call &rarr;</a></p>
       <div class="cmeta">
         <a href="mailto:hello@beanzdesigns.com"><span>Email</span><span>hello@beanzdesigns.com</span></a>
         <a href="tel:+447415325212"><span>Phone</span><span>+44 7415 325212</span></a>
@@ -572,7 +590,8 @@
         <div class="fld"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email" aria-describedby="email-err" placeholder="jane@business.com"><span class="err" id="email-err">Please enter a valid email address.</span></div>
         <div class="fld"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="07000 000000"></div>
       </div>
-      <div class="fld"><label for="package">Interested in</label>
+      <div class="fld"><label for="website">Your current website (if you have one)</label><input id="website" name="website" type="url" inputmode="url" autocomplete="url" placeholder="yourbusiness.co.uk"></div>
+      <div class="fld"><label for="package">Package you're considering</label>
         <select id="package" name="package">
           <option>Not sure yet &mdash; help me choose</option>
           <option>Launch &mdash; &pound;495</option>
@@ -581,7 +600,7 @@
         </select>
       </div>
       <div class="fld"><label for="message">About your business</label><textarea id="message" name="message" placeholder="What you do, and what you'd like your website to achieve."></textarea></div>
-      <button type="submit" class="btn btn-primary">I'm interested &rarr;</button>
+      <button type="submit" class="btn btn-primary">Send me my free review &rarr;</button>
       <p class="formmsg bad" id="formErr" role="alert">Sorry &mdash; that didn't send. Please email us at <a href="mailto:hello@beanzdesigns.com">hello@beanzdesigns.com</a> or call <a href="tel:+447415325212">+44 7415 325212</a>.</p>
       <p class="fnote">We'll never share your details. We'll reply within one working day. See our <a href="privacy.html" style="color:var(--pine);text-decoration:underline">Privacy Policy</a>.</p>
     </form>
@@ -598,7 +617,7 @@
       </div>
       <div class="foot-cols">
         <div class="fcol"><span class="h">Explore</span><a href="accountants.html">For accountants</a><a href="#problem">Why it matters</a><a href="#plan">How it works</a><a href="#pricing">Pricing</a><a href="care.html">Care plans</a><a href="portfolio.html">Portfolio</a><a href="faq.html">FAQ</a></div>
-        <div class="fcol"><span class="h">Get in touch</span><a href="#contact">Book a call</a><a href="mailto:hello@beanzdesigns.com">Email</a><a href="tel:+447415325212">Phone</a></div>
+        <div class="fcol"><span class="h">Get in touch</span><a href="https://calendly.com/beanzdesigns/30min">Book a free call</a><a href="#contact">Free website review</a><a href="mailto:hello@beanzdesigns.com">Email</a><a href="tel:+447415325212">Phone</a></div>
         <div class="fcol"><span class="h">Legal</span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></div>
       </div>
     </div>
@@ -609,7 +628,10 @@
   </div>
 </footer>
 
-<div class="mcta" id="mcta"><a href="#contact" class="btn btn-primary">I'm interested &rarr;</a></div>
+<div class="mcta" id="mcta">
+  <a href="https://calendly.com/beanzdesigns/30min" class="btn btn-primary">Book a free call &rarr;</a>
+  <a href="#contact" class="msec">Not ready? Get a free website review</a>
+</div>
 </div>
 
 <script>
@@ -670,8 +692,8 @@
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
       .then(function(r){
         if(!r.ok) throw new Error('submit failed: '+r.status);
-        b.innerHTML='Taking you to booking...';
-        window.location.href='https://calendly.com/beanzdesigns/30min';
+        b.innerHTML='Sent &mdash; thank you';
+        window.location.href='/thanks.html';
       })
       .catch(fail);
   });
