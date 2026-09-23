@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240">
+  <defs>
+    <g id="cross">
+      <!-- stepped cross, drawn from ARCHI's own post artwork -->
+      <path d="M90 30h60v30h30v30h30v60h-30v30h-30v30H90v-30H60v-30H30V90h30V60h30z"/>
+      <rect x="112" y="4" width="16" height="16"/>
+      <rect x="112" y="220" width="16" height="16"/>
+      <rect x="4" y="112" width="16" height="16"/>
+      <rect x="220" y="112" width="16" height="16"/>
+    </g>
+  </defs>
+  <g fill="#E3C9AC"><use href="#cross"/></g>
+</svg>
