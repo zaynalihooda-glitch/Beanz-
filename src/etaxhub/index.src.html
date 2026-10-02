@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>eTax Hub | Accountants for online sellers, consultants and creative businesses</title>
+<meta name="description" content="Chartered, Xero-based accountants in London. Your books kept up to date, your tax known months ahead, and an answer within a day. Fixed monthly fees from £150 plus VAT.">
+
+<!--
+  ============================================================================
+  SPEC MOCK-UP built by BEANZ Designs for eTax Hub. Not commissioned. noindex.
+
+  BEFORE THIS GOES LIVE FOR THE CLIENT:
+
+  1. BOOKING LINK. Every "Book a call" currently points at
+     mailto:hello@etaxhub.co.uk?subject=Book a call
+     Replace with Sadaf's real booking page (Calendly or similar). Never ship
+     a dead button, and a booking page beats an email link because the
+     prospect picks a time and answers questions before the call.
+
+  2. PRICES. £150 / £200 / £250 come from the homepage capture of
+     30 March 2025. An earlier packages page showed £70 / £125 / £160.
+     CONFIRM THE REAL NUMBERS WITH SADAF. She is a chartered accountant and
+     these are her published fees.
+
+  3. PACKAGE CONTENTS come from her own archived packages page. Confirm they
+     are still accurate.
+
+  4. HEADLINE. The h1 names who she is for, taken from her own repeated copy
+     ("professionals, online sellers, IT, eCommerce, creatives"). On the call
+     she said "general accounting". If she insists, the fallback is
+     "Accountants for owner-managed businesses in London", but the page gets
+     weaker, because that is the headline any firm could use.
+
+  5. NO TESTIMONIALS anywhere, because she has none yet. Nothing on this page
+     implies otherwise. Getting three real ones is the highest-value thing
+     she could do this month.
+
+  6. HEADSHOT. There is a marked slot for a real portrait. Her old site used a
+     phone photo taken against a bright window, so her face was in shadow.
+  ============================================================================
+-->
+
+<style>
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,__FRAUNCES400__) format('woff2')}
+@font-face{font-family:'Fraunces';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,__FRAUNCES600__) format('woff2')}
+@font-face{font-family:'Plex';font-style:normal;font-weight:400;font-display:swap;src:url(data:font/woff2;base64,__PLEX400__) format('woff2')}
+@font-face{font-family:'Plex';font-style:normal;font-weight:500;font-display:swap;src:url(data:font/woff2;base64,__PLEX500__) format('woff2')}
+@font-face{font-family:'Plex';font-style:normal;font-weight:600;font-display:swap;src:url(data:font/woff2;base64,__PLEX600__) format('woff2')}
+
+:root{
+  --paper:#F8FAFB;
+  --ink:#0C2531;
+  --muted:#4A6472;
+  --primary:#0B3A52;
+  --accent:#447389;   /* 4.94:1 on paper, 4.55:1 on wash. Passes as text, not just decoration. */
+  --wash:#E7F2F8;
+  --cta:#24B4E4;
+  --line:#D4E3EC;
+  --r:10px;
+  --serif:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Plex','Helvetica Neue',Helvetica,sans-serif;
+}
+
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--sans);font-size:18px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.1;letter-spacing:-.02em;margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img,svg{max-width:100%}
+
+.wrap{max-width:1140px;margin:0 auto;padding:0 24px}
+.measure{max-width:62ch}
+section{padding:64px 0;scroll-margin-top:84px}  /* clears the sticky header on anchor jumps */
+@media(min-width:820px){section{padding:112px 0}}
+
+/* ---------- buttons. --cta appears nowhere else on this page ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  min-height:52px;padding:14px 28px;border-radius:var(--r);
+  background:var(--cta);color:var(--ink);           /* dark on blue = 6.59:1. White would be 2.41:1 and fail. */
+  font-family:var(--sans);font-weight:600;font-size:17px;
+  text-decoration:none;border:2px solid var(--cta);
+  transition:background .15s ease,border-color .15s ease,transform .15s ease;
+}
+.btn:hover{background:#4CC4EE;border-color:#4CC4EE}
+.btn:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.btn-ghost{
+  display:inline-block;color:var(--muted);font-size:17px;font-weight:500;line-height:1.5;
+}
+/* padding-block with a matching negative margin grows the tap target past 44px
+   without moving the layout. */
+.btn-ghost a{
+  color:var(--primary);text-decoration:underline;text-underline-offset:3px;
+  display:inline-block;padding-block:13px;margin-block:-13px;
+}
+.band .btn-ghost{color:#C8DEEA}
+.band .btn-ghost a{color:#fff}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(248,250,251,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
+.brand{display:flex;align-items:center;gap:11px;text-decoration:none;flex:0 0 auto;min-height:44px}
+.brand svg{width:40px;height:40px;display:block}
+.brand b{font-family:var(--serif);font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--primary)}
+.navlinks{display:none;gap:30px}
+@media(min-width:960px){.navlinks{display:flex}}
+.navlinks a{color:var(--muted);text-decoration:none;font-size:16.5px;font-weight:500;padding:10px 0}
+.navlinks a:hover{color:var(--primary)}
+.bar .btn{min-height:46px;padding:10px 20px;font-size:16px}
+
+/* ---------- hero ---------- */
+.hero{padding-top:56px}
+@media(min-width:820px){.hero{padding-top:96px}}
+.hero h1{font-size:clamp(2.4rem,5.4vw,4.1rem);color:var(--primary);max-width:17ch}
+.hero .sub{margin-top:24px;font-size:clamp(1.1rem,1.9vw,1.33rem);color:var(--muted);max-width:52ch;line-height:1.55}
+.hero .acts{margin-top:36px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.creds{margin-top:44px;padding-top:26px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:12px 30px;color:var(--muted);font-size:15.5px}
+.creds span{display:flex;align-items:center;gap:9px}
+.creds svg{width:17px;height:17px;flex:0 0 auto;color:var(--accent)}
+
+/* ---------- the bold move: the problem list ---------- */
+.problems{background:var(--wash)}
+.problems h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary)}
+.plist{margin:40px 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.plist li{
+  border-bottom:1px solid var(--line);
+  padding:26px 0 26px 40px;position:relative;
+  font-family:var(--serif);font-weight:400;
+  font-size:clamp(1.22rem,2.5vw,1.85rem);line-height:1.3;color:var(--ink);
+}
+.plist li::before{
+  content:"";position:absolute;left:0;top:calc(1em - 1px);
+  width:22px;height:2px;background:var(--accent);
+}
+.bridge{margin-top:34px;font-size:1.15rem;color:var(--primary);font-weight:500;max-width:48ch}
+
+/* ---------- outcomes ---------- */
+.outcomes{display:grid;gap:0;margin-top:48px;border-top:1px solid var(--line)}
+@media(min-width:820px){.outcomes{grid-template-columns:repeat(3,1fr);gap:48px;border-top:none}}
+.outcome{padding:30px 0;border-bottom:1px solid var(--line)}
+@media(min-width:820px){.outcome{border-bottom:none;border-top:3px solid var(--accent);padding:26px 0 0}}
+.outcome h3{font-size:1.4rem;color:var(--primary);margin-bottom:10px}
+.outcome p{color:var(--muted);font-size:16.5px}
+
+/* ---------- split: specialist edge ---------- */
+.split{display:grid;gap:40px}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:72px;align-items:start}}
+.split h2{font-size:clamp(1.7rem,3.2vw,2.4rem);color:var(--primary)}
+.split p{color:var(--muted);margin-top:18px}
+.portrait{
+  border:1px solid var(--line);border-radius:var(--r);background:var(--wash);
+  aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:12px;color:var(--accent);text-align:center;padding:28px;
+}
+.portrait svg{width:46px;height:46px}
+.portrait span{font-size:14.5px;line-height:1.5;color:var(--muted);max-width:28ch}
+
+/* ---------- sectors ---------- */
+.sectors{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.sectors li{
+  list-style:none;border:1px solid var(--line);border-radius:999px;
+  padding:9px 18px;font-size:16px;color:var(--primary);background:#fff;
+}
+
+/* ---------- packages, on the dark band ---------- */
+.band{background:var(--primary);color:#fff}
+.band h2{color:#fff;font-size:clamp(1.8rem,3.4vw,2.6rem)}
+.band .lede{color:#C8DEEA;margin-top:16px;max-width:50ch}
+.pkgs{display:grid;gap:20px;margin-top:48px}
+@media(min-width:900px){.pkgs{grid-template-columns:repeat(3,1fr);gap:24px}}
+.pkg{
+  background:#fff;color:var(--ink);border-radius:var(--r);padding:30px 26px;
+  box-shadow:0 2px 14px rgba(0,0,0,.09);display:flex;flex-direction:column;
+}
+.pkg.feat{outline:3px solid var(--cta)}
+.pkg .tier{font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--primary)}
+.pkg .pick{font-size:14px;color:var(--primary);font-weight:600;margin-top:6px}
+.pkg .price{margin-top:14px;font-family:var(--serif);font-size:2.5rem;font-weight:600;color:var(--primary);line-height:1}
+.pkg .per{font-size:15.5px;color:var(--muted);margin-top:6px}
+.pkg ul{margin:24px 0 0;padding:0;list-style:none;border-top:1px solid var(--line);padding-top:20px}
+.pkg li{position:relative;padding:0 0 11px 27px;font-size:16px;color:var(--ink);line-height:1.45}
+.pkg li::before{
+  content:"";position:absolute;left:2px;top:7px;width:9px;height:5px;
+  border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(-45deg);
+}
+.band .after{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+
+/* ---------- plan ---------- */
+.steps{display:grid;gap:32px;margin-top:48px;counter-reset:s}
+@media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);gap:44px}}
+.step{counter-increment:s;padding-top:22px;border-top:1px solid var(--line)}
+.step::before{
+  content:counter(s);font-family:var(--serif);font-size:1.6rem;font-weight:600;
+  color:var(--accent);display:block;margin-bottom:10px;line-height:1;
+}
+.step h3{font-size:1.25rem;color:var(--primary);margin-bottom:8px}
+.step p{color:var(--muted);font-size:16.5px}
+
+/* ---------- close ---------- */
+.close{text-align:left}
+.close h2{font-size:clamp(1.9rem,4vw,3rem);color:var(--primary);max-width:19ch}
+.close .acts{margin-top:34px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line);padding:48px 0;color:var(--muted);font-size:16px}
+.foot{display:flex;flex-wrap:wrap;gap:20px 48px;justify-content:space-between}
+footer a{
+  color:var(--primary);display:inline-block;
+  padding-block:13px;margin-block:-13px;   /* 44px+ tap target, no layout shift */
+}
+.fine{margin-top:28px;font-size:14.5px;color:var(--muted)}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="eTax Hub home">
+      <svg viewBox="0 0 64 64" role="img" aria-label="eTax Hub logo">
+        <circle cx="32" cy="32" r="30" fill="none" stroke="#0B3A52" stroke-width="3.5"/>
+        <path d="M44 32c0-7-5.4-12.4-12.2-12.4C25 19.6 19.6 25.2 19.6 32S25 44.4 31.8 44.4c4.6 0 8.3-2.2 10.4-5.9"
+              fill="none" stroke="#0B3A52" stroke-width="3.5" stroke-linecap="round"/>
+        <path d="M20.6 30.6h22.8" stroke="#0B3A52" stroke-width="3.5" stroke-linecap="round"/>
+      </svg>
+      <b>eTax Hub</b>
+    </a>
+    <nav class="navlinks" aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#packages">Packages</a>
+      <a href="#sectors">Who we work with</a>
+    </nav>
+    <!-- BOOKING LINK: replace this mailto with Sadaf's real booking page -->
+    <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="wrap">
+      <h1>Accountants for online sellers, consultants and creative businesses</h1>
+      <p class="sub">Chartered, Xero-based and run from London. Your books kept up to date, your tax known months ahead, and an answer within a day.</p>
+      <div class="acts">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+        <span class="btn-ghost">Or email <a href="mailto:hello@etaxhub.co.uk">hello@etaxhub.co.uk</a> or ring <a href="tel:+442073900507">020 7390 0507</a></span>
+      </div>
+      <div class="creds">
+        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>ACA, FCCA and BSc qualified</span>
+        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="9"/></svg>Xero accredited partner</span>
+        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1a9 9 0 100 18 9 9 0 000-18zm1 9.6l4 2.3-.9 1.6-5.1-3V4.5h2z"/></svg>17 years in practice, 13 of them chartered</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="problems" id="problems">
+    <div class="wrap">
+      <h2>Does any of this sound like you?</h2>
+      <ul class="plist">
+        <li>You find out what you owe the week before it is due.</li>
+        <li>Your bookkeeping is months behind and you are the one chasing it.</li>
+        <li>You cannot get hold of your accountant when it actually matters.</li>
+        <li>You pay for software nobody ever showed you how to use.</li>
+        <li>Nothing gets said until the year end, when it is too late to change it.</li>
+        <li>You are not confident you are claiming everything you could.</li>
+      </ul>
+      <p class="bridge">None of that is normal, and none of it is your fault.</p>
+      <div class="acts" style="margin-top:34px">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary);max-width:20ch">What changes when we take it on</h2>
+      <div class="outcomes">
+        <div class="outcome">
+          <h3>You know your tax months ahead</h3>
+          <p>Not the week before it is due, when there is nothing left to do about it.</p>
+        </div>
+        <div class="outcome">
+          <h3>Your books stay done</h3>
+          <p>Kept up to date in Xero through the year, rather than waiting in a carrier bag for January.</p>
+        </div>
+        <div class="outcome">
+          <h3>You get an answer within a day</h3>
+          <p>Calls and emails are answered within 24 hours. You deal with the accountant, not a call queue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problems">
+    <div class="wrap split">
+      <div>
+        <h2>A chartered accountant, not a bookkeeping app with a logo on it.</h2>
+        <p>eTax Hub is run by Sadaf Inayat, who is ACA, FCCA and BSc qualified, has been an accountant for 17 years and chartered for 13, and is a Xero accredited partner.</p>
+        <p>It is a small practice on purpose. The person doing your accounts is the person who picks up the phone, which is the whole reason anything gets spotted before the year end.</p>
+        <!--
+          MONEY EXAMPLE SLOT. The strongest thing that could sit here is one real
+          worked example with a figure Sadaf will stand behind, framed as the
+          costly way against the specialist way, with the line "every situation is
+          different, we will show you what applies on the call".
+          DO NOT invent a figure. Ask her for one.
+        -->
+        <div class="acts" style="margin-top:32px">
+          <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+        </div>
+      </div>
+      <!-- HEADSHOT SLOT: replace this panel with a real portrait of Sadaf. -->
+      <div class="portrait">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+          <circle cx="12" cy="8.5" r="4"/><path d="M4 21c0-4.2 3.6-7 8-7s8 2.8 8 7"/>
+        </svg>
+        <span>Photograph of Sadaf goes here. A proper portrait is the cheapest credibility there is.</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="sectors">
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary);max-width:18ch">Who we work with</h2>
+      <p class="measure" style="margin-top:18px;color:var(--muted)">Most of our clients sell online or sell their time. If you are not on this list, it does not mean we cannot help.</p>
+      <ul class="sectors">
+        <li>eCommerce and online sellers</li>
+        <li>Consultants and contractors</li>
+        <li>Media and technology</li>
+        <li>Professional services</li>
+        <li>Medical profession</li>
+        <li>Owner-managed businesses</li>
+        <li>Hospitality</li>
+        <li>Retail</li>
+        <li>Property and construction</li>
+        <li>Manufacturing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band" id="packages">
+    <div class="wrap">
+      <h2>Fixed monthly fees, and you can see exactly what is in them</h2>
+      <p class="lede">No hourly billing and no invoice you were not expecting. Every package includes Xero and unlimited support.</p>
+
+      <!-- PRICES: from the 30 March 2025 capture. An earlier page showed £70/£125/£160. CONFIRM WITH SADAF. -->
+      <div class="pkgs">
+        <div class="pkg">
+          <span class="tier">Silver</span>
+          <div class="price">£150</div>
+          <p class="per">+VAT per month</p>
+          <ul>
+            <li>Xero software</li>
+            <li>Limited company accounts</li>
+            <li>Corporation tax return</li>
+            <li>Payroll for 1 director</li>
+            <li>Tax return for 1 director</li>
+            <li>Confirmation statement filing</li>
+            <li>Annual meeting</li>
+            <li>Unlimited support and advice</li>
+            <li>Pre year-end health check and tax planning</li>
+          </ul>
+        </div>
+        <div class="pkg feat">
+          <span class="tier">Gold</span>
+          <span class="pick">Most firms your size pick this one</span>
+          <div class="price">£200</div>
+          <p class="per">+VAT per month</p>
+          <ul>
+            <li>Xero software</li>
+            <li>Bookkeeping</li>
+            <li>VAT review and submission</li>
+            <li>Limited company accounts</li>
+            <li>Corporation tax return</li>
+            <li>Tax returns for 2 directors</li>
+            <li>Payroll for 2 employees</li>
+            <li>Company secretarial</li>
+            <li>Annual meeting</li>
+            <li>Unlimited support and advice</li>
+            <li>Pre year-end health check and tax planning</li>
+          </ul>
+        </div>
+        <div class="pkg">
+          <span class="tier">Platinum</span>
+          <div class="price">£250</div>
+          <p class="per">+VAT per month</p>
+          <ul>
+            <li>Xero software</li>
+            <li>Bookkeeping</li>
+            <li>VAT review and submission</li>
+            <li>Limited company accounts</li>
+            <li>Corporation tax return</li>
+            <li>Tax returns for 2 directors</li>
+            <li>Payroll for up to 5 employees</li>
+            <li>Company secretarial</li>
+            <li>Annual meeting</li>
+            <li>Unlimited support and advice</li>
+            <li>Pre year-end health check and tax planning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="after">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+        <span class="btn-ghost">Not sure which fits? Ring <a href="tel:+442073900507">020 7390 0507</a> and ask.</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary);max-width:20ch">How it works</h2>
+      <div class="steps">
+        <div class="step">
+          <h3>Book a call</h3>
+          <p>Twenty minutes. Tell us what you run and who does your books at the moment.</p>
+        </div>
+        <div class="step">
+          <h3>We look at your numbers</h3>
+          <p>We tell you what we would change and what it would cost. You are under no obligation at that point.</p>
+        </div>
+        <div class="step">
+          <h3>We take it over</h3>
+          <p>Moving across from your current accountant is our job to handle, not yours.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problems close">
+    <div class="wrap">
+      <h2>Find out whether we are the right accountants for you.</h2>
+      <div class="acts">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+        <span class="btn-ghost">Or ring <a href="tel:+442073900507">020 7390 0507</a></span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <strong style="color:var(--primary)">eTax Hub Limited</strong><br>
+        Chartered accountants and tax advisers, London
+      </div>
+      <div>
+        <a href="mailto:hello@etaxhub.co.uk">hello@etaxhub.co.uk</a><br>
+        <a href="tel:+442073900507">020 7390 0507</a>
+      </div>
+      <div>
+        ACCA<br>
+        Xero accredited partner
+      </div>
+    </div>
+    <p class="fine">Concept design prepared by BEANZ Designs. Not a live website.</p>
+  </div>
+</footer>
+
+</body>
+</html>
