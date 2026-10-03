@@ -43,6 +43,9 @@ def build():
 
     OUT.mkdir(exist_ok=True)
     (OUT / "index.html").write_text(html)
+
+    # Sadaf's own photo, cropped square for the circular avatar.
+    (OUT / "sadaf-avatar.jpg").write_bytes((SRC / "sadaf-avatar.jpg").read_bytes())
     kb = round((OUT / "index.html").stat().st_size / 1024)
     print(f"built etaxhub/index.html  ({kb} KB)")
 
