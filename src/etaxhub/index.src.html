@@ -212,6 +212,33 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,250,251,.94);backdro
 }
 .band .after{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
 
+/* ---------- switching ---------- */
+.switch{max-width:none}
+.switch > h2,.switch > p{max-width:30ch}
+.switch > p{max-width:56ch}
+.swlist{margin:40px 0 0;padding:0;list-style:none;display:grid;gap:4px 56px}
+@media(min-width:900px){.swlist{grid-template-columns:1fr 1fr;gap:10px 64px}}
+.swlist li{position:relative;padding:0 0 22px 46px;font-size:1.07rem;line-height:1.55;color:var(--ink)}
+.swlist li:last-child{padding-bottom:0}
+.swlist li b{display:block;font-weight:600;color:var(--primary);font-size:1.12rem;margin-bottom:3px}
+.swlist li span{color:var(--muted);font-size:16.5px}
+.swlist li::before{
+  content:"";position:absolute;left:4px;top:4px;width:22px;height:22px;
+  border-radius:50%;border:2px solid var(--accent);
+}
+.swlist li::after{
+  content:"";position:absolute;left:10px;top:12px;width:10px;height:5px;
+  border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);
+  transform:rotate(-45deg);
+}
+
+/* ---------- faq ---------- */
+.faqs{display:grid;gap:0;margin-top:44px;border-top:1px solid var(--line)}
+@media(min-width:900px){.faqs{grid-template-columns:1fr 1fr;gap:0 56px}}
+.faq{padding:26px 0;border-bottom:1px solid var(--line)}
+.faq h3{font-size:1.18rem;color:var(--primary);margin-bottom:9px}
+.faq p{color:var(--muted);font-size:16.5px}
+
 /* ---------- plan ---------- */
 .steps{display:grid;gap:32px;margin-top:48px;counter-reset:s}
 @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr);gap:44px}}
@@ -257,6 +284,7 @@ footer a{
       <a href="#how">How it works</a>
       <a href="#packages">Packages</a>
       <a href="#sectors">Who we work with</a>
+      <a href="#faq">FAQs</a>
     </nav>
     <!-- BOOKING LINK: replace this mailto with Sadaf's real booking page -->
     <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
@@ -433,6 +461,62 @@ footer a{
           <h3>We take it over</h3>
           <p>Moving across from your current accountant is our job to handle, not yours.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="problems" id="switching">
+    <div class="wrap">
+      <div class="switch">
+        <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary)">Changing accountants is easier than staying put</h2>
+        <p style="margin-top:18px;color:var(--muted);font-size:1.07rem">Most people stay where they are because moving sounds like a job. It is not, and almost none of it lands on you.</p>
+        <!-- These four are standard practice rather than claims specific to eTax Hub,
+             but they are still statements about how SHE works. Confirm with Sadaf. -->
+        <ul class="swlist">
+          <li><b>We write to your current accountant, not you</b><span>Professional clearance is a routine letter between firms. You do not have to have an awkward conversation with anyone.</span></li>
+          <li><b>You can move at any point in the year</b><span>You do not have to wait for your year end, and you will not pay twice for the same work.</span></li>
+          <li><b>It takes about a week, and roughly nothing from you</b><span>Sign one authority so we can act for you with HMRC, and we handle the rest.</span></li>
+          <li><b>Behind on your filing? That is usually why people call</b><span>Late returns and unfiled accounts are normal here. We would rather sort it than hear about it in a year.</span></li>
+        </ul>
+        <div class="acts" style="margin-top:36px">
+          <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary);max-width:18ch">Questions people ask first</h2>
+      <!-- Answers are standard practice. Confirm each one with Sadaf before this is live. -->
+      <div class="faqs">
+        <div class="faq">
+          <h3>Do I have to use Xero?</h3>
+          <p>It is included in every package and it is what we work in, so yes in practice. If you are on something else now, moving your records across is part of the job.</p>
+        </div>
+        <div class="faq">
+          <h3>Am I tied into a contract?</h3>
+          <p>No. The fee is monthly and you can stop. Your records are yours and you take them with you.</p>
+        </div>
+        <div class="faq">
+          <h3>Does this cover my personal tax return?</h3>
+          <p>Yes. Every package includes a director's self assessment, and Gold and Platinum cover two.</p>
+        </div>
+        <div class="faq">
+          <h3>What if my bookkeeping is a mess?</h3>
+          <p>Then you are in the right place, and you should say so on the call. It changes where we start, not whether we take it on.</p>
+        </div>
+        <div class="faq">
+          <h3>Will I be dealing with you or with staff?</h3>
+          <p>With Sadaf. It is a small practice on purpose, which is the whole reason things get spotted before the year end.</p>
+        </div>
+        <div class="faq">
+          <h3>What does it cost beyond the monthly fee?</h3>
+          <p>Nothing you have not agreed first. The fee is fixed, there is no hourly billing, and anything outside it gets quoted before it starts.</p>
+        </div>
+      </div>
+      <div class="acts" style="margin-top:44px">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
       </div>
     </div>
   </section>
