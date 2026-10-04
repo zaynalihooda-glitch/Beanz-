@@ -128,6 +128,40 @@ header{position:sticky;top:0;z-index:50;background:rgba(248,250,251,.94);backdro
 .creds span{display:flex;align-items:center;gap:9px}
 .creds svg{width:17px;height:17px;flex:0 0 auto;color:var(--accent)}
 
+/* ---------- proof band: real numbers, front-loaded ---------- */
+.proof{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.proof .wrap{display:grid;gap:30px;padding-top:40px;padding-bottom:40px}
+@media(min-width:820px){.proof .wrap{grid-template-columns:repeat(3,1fr) auto;gap:48px;align-items:center}}
+.stat b{display:block;font-family:var(--serif);font-size:clamp(2.2rem,4vw,3rem);font-weight:600;
+  color:var(--primary);line-height:1;letter-spacing:-.02em}
+.stat span{display:block;margin-top:9px;color:var(--muted);font-size:16px;line-height:1.45;max-width:24ch}
+.xero{display:flex;align-items:center;gap:12px;padding:16px 20px;border:1px solid var(--line);
+  border-radius:var(--r);background:var(--wash)}
+.xero svg{width:34px;height:34px;flex:0 0 auto}
+.xero span{font-size:15px;line-height:1.35;color:var(--primary);font-weight:500}
+.xero span i{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:13.5px}
+
+/* ---------- vs the alternatives ---------- */
+.vs{width:100%;border-collapse:collapse;margin-top:44px;font-size:16px}
+.vs th,.vs td{padding:16px 14px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+.vs thead th{font-family:var(--serif);font-size:1.1rem;font-weight:600;color:var(--primary);
+  border-bottom:2px solid var(--line);line-height:1.25}
+.vs thead th.us{color:var(--primary)}
+.vs tbody th{font-weight:500;color:var(--muted);width:24%}
+.vs td{color:var(--muted)}
+/* This section sits on the wash ground, so the highlighted column has to be
+   white to read. A wash-on-wash highlight is invisible. */
+.vs .us{background:#fff}
+.vs thead th.us{box-shadow:inset 0 3px 0 var(--cta)}
+.vs tbody td.us{color:var(--ink);font-weight:500}
+.vs thead th:first-child{width:24%}
+@media(max-width:820px){
+  .vs{font-size:14.5px}
+  .vs th,.vs td{padding:12px 9px}
+  .vs tbody th{width:26%}
+  .vs thead th{font-size:.95rem}
+}
+
 /* ---------- the bold move: the problem list ---------- */
 .problems{background:var(--wash)}
 .problems h2{font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary)}
@@ -304,11 +338,22 @@ footer a{
         <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
         <span class="btn-ghost">Or email <a href="mailto:hello@etaxhub.co.uk">hello@etaxhub.co.uk</a> or ring <a href="tel:+442073900507">020 7390 0507</a></span>
       </div>
-      <div class="creds">
-        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1l2.6 5.3 5.9.9-4.3 4.1 1 5.8L10 14.4 4.8 17.1l1-5.8L1.5 7.2l5.9-.9z"/></svg>ACA, FCCA and BSc qualified</span>
-        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><circle cx="10" cy="10" r="9"/></svg>Xero accredited partner</span>
-        <span><svg viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10 1a9 9 0 100 18 9 9 0 000-18zm1 9.6l4 2.3-.9 1.6-5.1-3V4.5h2z"/></svg>17 years in practice, 13 of them chartered</span>
+    </div>
+  </section>
+
+  <section class="proof">
+    <div class="wrap">
+      <div class="stat"><b>24 hours</b><span>Every call and email answered within one working day</span></div>
+      <div class="stat"><b>17 years</b><span>In practice, 13 of them as a chartered accountant</span></div>
+      <div class="stat"><b>One</b><span>Accountant. The person doing your books is the person who answers</span></div>
+      <div class="xero">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <circle cx="20" cy="20" r="19" fill="#24B4E4"/>
+          <path d="M13 14l14 12M27 14L13 26" stroke="#fff" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <span>Xero accredited partner<i>Included in every package</i></span>
       </div>
+    </div>
     </div>
   </section>
 
@@ -398,6 +443,37 @@ footer a{
         <li>Property and construction</li>
         <li>Manufacturing</li>
       </ul>
+    </div>
+  </section>
+
+  <section class="problems" id="compare">
+    <div class="wrap">
+      <h2 style="font-size:clamp(1.8rem,3.4vw,2.6rem);color:var(--primary);max-width:20ch">The three ways people do this</h2>
+      <p class="measure" style="margin-top:18px;color:var(--muted)">Most people choose between doing it themselves with software, a traditional firm, or something in between. Here is the honest version.</p>
+      <!-- The middle column describes traditional practice generally rather than any named
+           firm. Softened on purpose, but still worth Sadaf reading before it goes live. -->
+      <div class="tablewrap">
+        <table class="vs">
+          <thead>
+            <tr>
+              <th scope="col"><span class="vh">Compared on</span></th>
+              <th scope="col">Software on your own</th>
+              <th scope="col">A traditional firm</th>
+              <th scope="col" class="us">eTax Hub</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Who keeps the books</th><td>You, in the evenings</td><td>You, and they check it later</td><td class="us">Included from Gold upwards</td></tr>
+            <tr><th scope="row">Who you speak to</th><td>A help centre</td><td>Often whoever is free that day</td><td class="us">Sadaf, every time</td></tr>
+            <tr><th scope="row">When you learn your tax bill</th><td>When you file it</td><td>Usually at the year end</td><td class="us">Months ahead</td></tr>
+            <tr><th scope="row">How quickly you get an answer</th><td>A support queue</td><td>Often several days</td><td class="us">Within 24 hours</td></tr>
+            <tr><th scope="row">What it costs</th><td>Software, plus your evenings</td><td>Often billed by the hour</td><td class="us">A fixed monthly fee, £150 to £250</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="acts" style="margin-top:36px">
+        <a class="btn" href="mailto:hello@etaxhub.co.uk?subject=Book%20a%20call">Book a call</a>
+      </div>
     </div>
   </section>
 
