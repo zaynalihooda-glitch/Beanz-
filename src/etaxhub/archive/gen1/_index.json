@@ -1,0 +1,138 @@
+{
+  "label": "totalSOLUTION 2021",
+  "host": "www.etaxhub.co.uk",
+  "pages": [
+    {
+      "path": "/home",
+      "ok": false
+    },
+    {
+      "path": "/about-us",
+      "ok": false
+    },
+    {
+      "path": "/contact-us",
+      "ok": false
+    },
+    {
+      "path": "/packages",
+      "ok": false
+    },
+    {
+      "path": "/faqs",
+      "ok": false
+    },
+    {
+      "path": "/free-tax-advice",
+      "ok": false
+    },
+    {
+      "path": "/xero",
+      "ok": false
+    },
+    {
+      "path": "/sectors",
+      "ok": false
+    },
+    {
+      "path": "/sectors/contractors",
+      "ok": false
+    },
+    {
+      "path": "/sectors/ecommerce-business",
+      "ok": false
+    },
+    {
+      "path": "/sectors/hospitality",
+      "ok": false
+    },
+    {
+      "path": "/sectors/manufacturing",
+      "ok": false
+    },
+    {
+      "path": "/sectors/media-and-technology",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/consultants",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/dentists",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/gp-practices",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/hospital-doctors",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/locums",
+      "ok": false
+    },
+    {
+      "path": "/sectors/medical-profession/salaried-gps",
+      "ok": false
+    },
+    {
+      "path": "/sectors/owner-managed-business",
+      "ok": false
+    },
+    {
+      "path": "/sectors/professional-services",
+      "ok": false
+    },
+    {
+      "path": "/sectors/property-and-construction",
+      "ok": false
+    },
+    {
+      "path": "/sectors/retail",
+      "ok": false
+    },
+    {
+      "path": "/services",
+      "ok": false
+    },
+    {
+      "path": "/services/bookkeeping",
+      "ok": false
+    },
+    {
+      "path": "/services/business-start-ups",
+      "ok": false
+    },
+    {
+      "path": "/services/company-secretarial",
+      "ok": false
+    },
+    {
+      "path": "/services/corporation-tax",
+      "ok": false
+    },
+    {
+      "path": "/services/final-accounts-preparation",
+      "ok": false
+    },
+    {
+      "path": "/services/payroll",
+      "ok": false
+    },
+    {
+      "path": "/services/personal-tax",
+      "ok": false
+    },
+    {
+      "path": "/services/vat-returns",
+      "ok": false
+    }
+  ]
+}

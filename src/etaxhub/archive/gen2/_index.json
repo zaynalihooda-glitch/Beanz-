@@ -1,0 +1,73 @@
+{
+  "label": "WordPress 2025",
+  "host": "etaxhub.co.uk",
+  "pages": [
+    {
+      "path": "/",
+      "ok": false
+    },
+    {
+      "path": "/about-us/",
+      "ok": false
+    },
+    {
+      "path": "/packages/",
+      "ok": false
+    },
+    {
+      "path": "/contact-us/",
+      "ok": true,
+      "title": "How to Contact eTax HUB, Your Local Accountants in Canary Wharf",
+      "file": "contact-us.txt",
+      "headings": 7
+    },
+    {
+      "path": "/services/",
+      "ok": false
+    },
+    {
+      "path": "/xero-page-info/",
+      "ok": false
+    },
+    {
+      "path": "/contractors/",
+      "ok": false
+    },
+    {
+      "path": "/ecommerce-business/",
+      "ok": false
+    },
+    {
+      "path": "/hospitality/",
+      "ok": false
+    },
+    {
+      "path": "/manufacturing/",
+      "ok": false
+    },
+    {
+      "path": "/media-and-technology/",
+      "ok": false
+    },
+    {
+      "path": "/medical-profession/",
+      "ok": false
+    },
+    {
+      "path": "/owner-managed-business/",
+      "ok": false
+    },
+    {
+      "path": "/professional-services/",
+      "ok": false
+    },
+    {
+      "path": "/property-construction/",
+      "ok": false
+    },
+    {
+      "path": "/retail/",
+      "ok": false
+    }
+  ]
+}
