@@ -21,3 +21,20 @@ GENERATION 1 (totalSOLUTION, 2021) — her own pages only, not the shared librar
       429, waiting 64s
       429, waiting 120s
       429, waiting 120s
+  [ 4/33] MISS /packages
+      429, waiting 8s
+      429, waiting 16s
+      429, waiting 32s
+      429, waiting 64s
+      429, waiting 120s
+  [ 5/33] ok   /faqs  (125 lines)
+      429, waiting 8s
+      429, waiting 16s
+      429, waiting 32s
+      429, waiting 64s
+      429, waiting 120s
+      429, waiting 120s
+  [ 6/33] MISS /free-tax-advice
+      429, waiting 8s
+      429, waiting 16s
+      429, waiting 32s
